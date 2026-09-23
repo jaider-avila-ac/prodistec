@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes pageIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.page-in { animation: pageIn 0.3s ease-out; }
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.fade-in { animation: fadeIn 0.2s ease-out; }
+
+/* Hero de inicio: el fondo nunca queda quieto (zoom + desplazamiento en bucle) */
+@keyframes heroDrift {
+  0%   { transform: scale(1.05) translate(0, 0); }
+  50%  { transform: scale(1.18) translate(-2%, -1.5%); }
+  100% { transform: scale(1.05) translate(0, 0); }
+}
+.hero-drift { animation: heroDrift 20s ease-in-out infinite; will-change: transform; }
+
+/* Entrada de las líneas fijas del titular */
+@keyframes heroLine {
+  from { opacity: 0; transform: translateY(40%); }
+  to { opacity: 1; transform: none; }
+}
+.hero-line { animation: heroLine .9s cubic-bezier(.2,.7,.2,1) both; }
+
+/* Tira de sectores con movimiento constante: el track duplica los items
+   y se desplaza -50% para que el loop sea invisible. */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee-track { animation: marquee 40s linear infinite; }
+.marquee-track:hover { animation-play-state: paused; }
+
+/* Aparición al entrar en pantalla (ver components/ui/Reveal.jsx) */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.is-visible { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-drift, .hero-line, .marquee-track, .page-in { animation: none; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+:root {
+  --header-h: 72px;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-white text-ink antialiased font-sans; }
+  h1, h2, h3, h4 { @apply font-display uppercase tracking-tight; }
+}
+
+@layer components {
+  /* ── Botones ─────────────────────────── */
+  .btn-accent {
+    @apply inline-flex items-center justify-center gap-2 bg-accent text-ink px-6 py-3
+           font-semibold text-sm uppercase tracking-wider
+           hover:bg-accent-dark transition-colors duration-200;
+  }
+  .btn-dark {
+    @apply inline-flex items-center justify-center gap-2 bg-ink text-white px-6 py-3
+           font-semibold text-sm uppercase tracking-wider
+           hover:bg-black transition-colors duration-200;
+  }
+  .btn-outline-light {
+    @apply inline-flex items-center justify-center gap-2 border border-white/60 text-white px-6 py-3
+           font-semibold text-sm uppercase tracking-wider
+           hover:bg-white hover:text-ink transition-colors duration-200;
+  }
+
+  /* ── Textos ──────────────────────────── */
+  .eyebrow {
+    @apply inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.25em] text-accent-dark;
+  }
+  .eyebrow::before {
+    content: '';
+    @apply block w-8 h-[2px] bg-accent;
+  }
+  .container-site { @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8; }
+
+  /* ── Formularios ─────────────────────── */
+  .input {
+    @apply w-full border border-gray-300 bg-white px-4 py-3 text-sm outline-none
+           focus:border-ink transition-colors;
+  }
+  .label { @apply block text-xs font-semibold uppercase tracking-wider text-gray-600 mb-2; }
+
+  /* ── Contenido legal ─────────────────── */
+  .prose-legal h2 { @apply text-2xl font-bold mt-10 mb-3 text-ink; }
+  .prose-legal h3 { @apply text-lg font-bold mt-6 mb-2 text-ink normal-case font-sans tracking-normal; }
+  .prose-legal p { @apply text-gray-700 leading-relaxed mb-4; }
+  .prose-legal ul { @apply list-disc pl-6 mb-4 space-y-1 text-gray-700; }
+}
