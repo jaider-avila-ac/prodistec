@@ -1,0 +1,31 @@
+{
+  "nombre": "PRODISTEC S.A.S.",
+  "nombreCorto": "PRODISTEC",
+  "lema": "Obra civil y arquitectura",
+  "descripcion": "Empresa de obra civil y arquitectura en Santa Marta. Construcción, edificaciones, infraestructura urbana, vial, institucional y aeroportuaria.",
+  "nit": "900.914.555-3",
+
+  "direccion": "Calle 24 # 3-99, Oficina 1506",
+  "ciudad": "Santa Marta",
+  "departamento": "Magdalena",
+  "pais": "Colombia",
+
+  "telefono": "+57 324 569 2973",
+  "whatsapp": "+57 324 569 2973",
+
+  "correos": {
+    "general": "contacto@prodistec.com.co",
+    "talentoHumano": "talentohumano@prodistec.com.co",
+    "compras": "compras@prodistec.com.co"
+  },
+
+  "horario": "Lunes a viernes, 7:00 a. m. a 5:00 p. m.",
+
+  "redes": {
+    "facebook": "",
+    "instagram": "",
+    "linkedin": ""
+  },
+
+  "sitioWeb": ""
+}

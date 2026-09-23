@@ -17,7 +17,7 @@ export const SERVICIOS = [
     titulo: 'Edificaciones',
     icon: Building2,
     resumen: 'Construcción, adecuación y mejoramiento de edificaciones.',
-    descripcion: 'Construimos y mejoramos edificaciones institucionales, comerciales e industriales, cumpliendo la NSR-10 y los requisitos técnicos de cada cliente.',
+    descripcion: 'Construimos y mejoramos edificaciones institucionales, comerciales e industriales, de acuerdo con los requisitos técnicos de cada cliente.',
     alcances: ['Edificaciones institucionales y educativas', 'Sedes corporativas y comerciales', 'Bodegas y naves industriales', 'Reforzamiento estructural'],
   },
   {

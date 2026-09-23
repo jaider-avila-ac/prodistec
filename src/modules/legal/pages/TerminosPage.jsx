@@ -36,7 +36,7 @@ export default function TerminosPage() {
       <h2>5. Propiedad intelectual</h2>
       <p>
         Los textos, logotipos, fotografías, planos, diseños y demás contenidos del sitio son propiedad de la Empresa o se usan con
-        autorización de sus titulares, y están protegidos por la Ley 23 de 1982 y la Decisión Andina 351 de 1993. Se prohíbe su
+        autorización de sus titulares, y están protegidos por las normas de propiedad intelectual. Se prohíbe su
         reproducción, distribución o modificación sin autorización previa y por escrito.
       </p>
 

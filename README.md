@@ -33,11 +33,23 @@ src/
 Para cambiar el color de marca, edite **solo** `tailwind.config.js` → `theme.extend.colors`.
 Todo el texto editable está en `src/data/`: el cliente no necesita tocar componentes.
 
+### Datos de la empresa: `src/data/empresa.json`
+
+Nombre, NIT, dirección, teléfono, WhatsApp, correos, horario y redes sociales se cambian
+**solo en este archivo** y se actualizan en todo el sitio. Los enlaces `tel:`, WhatsApp y el
+mapa se generan solos a partir del teléfono y la dirección. Una red social con valor `""`
+no muestra su ícono.
+
+Al compilar (`npm run build`), esos datos también se escriben en el `index.html` (título,
+descripción, etiquetas Open Graph y datos estructurados schema.org para Google), así que
+quedan en el HTML aunque el navegador no ejecute JavaScript. Esto lo hace el plugin
+`empresaEnHtml` de `vite.config.js`.
+
 ## Información pendiente del cliente
 
 Todo lo que aparece entre corchetes `[ ]` en el sitio es provisional.
 
-**Datos corporativos** (`src/data/empresa.js`)
+**Datos corporativos** (`src/data/empresa.json`; cifras en `src/data/empresa.js`)
 - Ya recibidos: NIT 900.914.555-3, Calle 24 # 3-99 Of. 1506 (Santa Marta), cel. y WhatsApp +57 324 569 2973
 - Correos (general, talento humano, compras), horario de atención, redes sociales
 - Cifras reales: años de experiencia, proyectos ejecutados, m² construidos
@@ -56,8 +68,8 @@ Todo lo que aparece entre corchetes `[ ]` en el sitio es provisional.
 - 3 a 6 fotografías por proyecto (horizontales, mínimo 1600 px de ancho)
 
 **Calidad y seguridad**
-- No tiene certificaciones ISO (confirmado). La página muestra la normativa que se aplica
-  (NSR-10, SG-SST, trabajo en alturas). Si obtiene alguna certificación o tiene RUP, agregarla.
+- No tiene certificaciones ISO (confirmado). El sitio no menciona certificaciones, sistemas
+  de gestión ni leyes o decretos. Solo agregarlos si el cliente los confirma por escrito.
 
 **Legal**
 - Revisión de términos, política de datos y cookies por su asesor jurídico

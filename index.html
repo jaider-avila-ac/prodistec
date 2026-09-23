@@ -4,12 +4,18 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="PRODISTEC S.A.S. — Obra civil y arquitectura. Construcción, edificaciones, infraestructura urbana, vial, institucional y aeroportuaria." />
+    <!-- Los marcadores %EMPRESA_*% se llenan al compilar con src/data/empresa.json -->
+    <title>%EMPRESA_NOMBRE% | %EMPRESA_LEMA%</title>
+    <meta name="description" content="%EMPRESA_DESCRIPCION%" />
     <meta name="theme-color" content="#0E1116" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="%EMPRESA_NOMBRE_CORTO%" />
+    <meta property="og:title" content="%EMPRESA_NOMBRE% | %EMPRESA_LEMA%" />
+    <meta property="og:description" content="%EMPRESA_DESCRIPCION%" />
+    <meta property="og:locale" content="es_CO" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <title>PRODISTEC S.A.S. | Obra civil y arquitectura</title>
   </head>
   <body>
     <div id="root"></div>

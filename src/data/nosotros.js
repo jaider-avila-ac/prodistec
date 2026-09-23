@@ -1,3 +1,4 @@
+import { EMPRESA } from './empresa'
 import { ShieldCheck, Award, Handshake, Leaf, Users, Scale } from 'lucide-react'
 
 // Redacción de EJEMPLO — el cliente debe validar o reemplazar misión, visión,
@@ -18,14 +19,14 @@ export const VALORES = [
 ]
 
 export const HISTORIA = [
-  { anio: '2015', titulo: 'Fundación', texto: 'Nace PRODISTEC S.A.S. como empresa de obra civil y arquitectura. [Por confirmar]' },
+  { anio: '2015', titulo: 'Fundación', texto: `Nace ${EMPRESA.nombre} como empresa de obra civil y arquitectura. [Por confirmar]` },
   { anio: '2018', titulo: 'Primeros contratos públicos', texto: 'Ejecutamos nuestras primeras obras para entidades públicas. [Por confirmar]' },
   { anio: '2021', titulo: 'Infraestructura aeroportuaria', texto: 'Participamos en nuestro primer proyecto de modernización aeroportuaria. [Por confirmar]' },
   { anio: '2024', titulo: 'Crecimiento regional', texto: 'Ampliamos nuestra presencia en proyectos de la región Caribe. [Por confirmar]' },
 ]
 
 export const COMPROMISO =
-  'En PRODISTEC S.A.S. nos comprometemos a satisfacer los requisitos de nuestros clientes, prevenir lesiones y enfermedades laborales, proteger el medio ambiente y cumplir la legislación aplicable, mediante la mejora continua de nuestros procesos.'
+  `En ${EMPRESA.nombre} nos comprometemos a satisfacer los requisitos de nuestros clientes, prevenir lesiones y enfermedades laborales, proteger el medio ambiente y cumplir la legislación aplicable, mediante la mejora continua de nuestros procesos.`
 
 // Proceso de trabajo (inicio y servicios)
 export const PROCESO = [

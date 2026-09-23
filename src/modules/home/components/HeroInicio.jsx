@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight, ChevronDown } from 'lucide-react'
 import { IMAGENES } from '../../../data/imagenes'
+import { EMPRESA } from '../../../data/empresa'
 
 // Fondos que rotan en el hero (cada uno con zoom lento continuo).
 const FONDOS = IMAGENES.inicio.heroFondos
@@ -38,7 +39,7 @@ export default function HeroInicio() {
         >
           <img
             src={img}
-            alt={i === 0 ? 'Obra en construcción de PRODISTEC' : ''}
+            alt={i === 0 ? `Obra en construcción de ${EMPRESA.nombreCorto}` : ''}
             className="w-full h-full object-cover hero-drift"
             style={{ animationDelay: `${-i * 5}s` }}
             loading={i === 0 ? 'eager' : 'lazy'}
@@ -49,7 +50,7 @@ export default function HeroInicio() {
       <div className="absolute inset-0 bg-gradient-to-r from-ink/80 to-transparent" />
 
       <div className="relative container-site w-full pb-28 sm:pb-32 pt-40">
-        <span className="eyebrow !text-accent">Obra civil y arquitectura</span>
+        <span className="eyebrow !text-accent">{EMPRESA.lema}</span>
         <h1 className="mt-6 text-[12.5vw] sm:text-8xl lg:text-[9rem] font-extrabold leading-[0.82] max-w-5xl">
           <span className="block hero-line" style={{ animationDelay: '0ms' }}>Construimos</span>
           {/* Palabras apiladas en la misma celda: entra desde abajo, sale hacia arriba */}

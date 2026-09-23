@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import { usePageMeta } from '../../../utils/seo'
 import { IMAGENES } from '../../../data/imagenes'
+import { EMPRESA } from '../../../data/empresa'
 import { PROYECTOS, CATEGORIAS_PROYECTO } from '../../../data/proyectos'
 import PageHero from '../../../components/ui/PageHero'
 import ProyectoCard from '../../../components/ui/ProyectoCard'
@@ -10,7 +11,7 @@ import CtaBanner from '../../../components/ui/CtaBanner'
 const ALTOS = ['h-96', 'h-72', 'h-80', 'h-72', 'h-96', 'h-80']
 
 export default function ProyectosPage() {
-  usePageMeta('Proyectos', 'Portafolio de proyectos de obra civil, edificaciones e infraestructura ejecutados por PRODISTEC S.A.S.')
+  usePageMeta('Proyectos', `Portafolio de proyectos de obra civil, edificaciones e infraestructura ejecutados por ${EMPRESA.nombre}`)
   const [categoria, setCategoria] = useState('Todos')
 
   const lista = useMemo(

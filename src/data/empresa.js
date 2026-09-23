@@ -1,27 +1,30 @@
 // ─────────────────────────────────────────────────────────────────────────────
-// Datos corporativos. Todo lo que está entre corchetes [ ] es PROVISIONAL y lo
-// debe suministrar el cliente (ver README.md → "Información pendiente").
+// Los datos de la empresa (NIT, dirección, teléfonos, correos, redes...) se editan
+// ÚNICAMENTE en empresa.json. Este archivo solo arma los valores derivados
+// (enlaces tel:, WhatsApp, mapa) para que no haya que repetirlos a mano.
+// El mismo JSON se inyecta en index.html al compilar (ver vite.config.js).
 // ─────────────────────────────────────────────────────────────────────────────
+import datos from './empresa.json'
+
+const soloDigitos = (tel) => tel.replace(/\D/g, '')
+
 export const EMPRESA = {
-  nombre: 'PRODISTEC S.A.S.',
-  nombreCorto: 'PRODISTEC',
-  lema: 'Obra civil y arquitectura',
-  nit: '900.914.555-3',
-  direccion: 'Calle 24 # 3-99, Oficina 1506',
-  ciudad: 'Santa Marta, Magdalena',
-  telefono: '+57 324 569 2973',
-  telefonoHref: 'tel:+573245692973',
-  whatsapp: '573245692973', // solo dígitos, con indicativo (mismo celular, confirmado)
-  email: 'contacto@prodistec.com.co', // [por confirmar]
-  emailTalento: 'talentohumano@prodistec.com.co', // [por confirmar]
-  emailProveedores: 'compras@prodistec.com.co', // [por confirmar]
-  horario: 'Lunes a viernes, 7:00 a. m. a 5:00 p. m.',
-  mapaQuery: 'Calle 24 # 3-99, Santa Marta, Magdalena, Colombia', // mapa de /contacto
-  redes: {
-    linkedin: '#',
-    instagram: '#',
-    facebook: '#',
-  },
+  nombre: datos.nombre,
+  nombreCorto: datos.nombreCorto,
+  lema: datos.lema,
+  descripcion: datos.descripcion,
+  nit: datos.nit,
+  direccion: datos.direccion,
+  ciudad: `${datos.ciudad}, ${datos.departamento}`,
+  telefono: datos.telefono,
+  telefonoHref: `tel:+${soloDigitos(datos.telefono)}`,
+  whatsapp: soloDigitos(datos.whatsapp),
+  email: datos.correos.general,
+  emailTalento: datos.correos.talentoHumano,
+  emailProveedores: datos.correos.compras,
+  horario: datos.horario,
+  mapaQuery: `${datos.direccion.split(',')[0]}, ${datos.ciudad}, ${datos.departamento}, ${datos.pais}`,
+  redes: datos.redes, // una red con valor vacío no se muestra
 }
 
 // Cifras de la franja de inicio — [valores de ejemplo, confirmar con el cliente]

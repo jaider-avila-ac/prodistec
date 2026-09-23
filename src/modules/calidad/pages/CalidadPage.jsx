@@ -1,6 +1,7 @@
-import { Award, HardHat, Leaf, FileCheck2 } from 'lucide-react'
+import { Award, HardHat, Leaf } from 'lucide-react'
 import { usePageMeta } from '../../../utils/seo'
 import { IMAGENES } from '../../../data/imagenes'
+import { EMPRESA } from '../../../data/empresa'
 import { COMPROMISO } from '../../../data/nosotros'
 import PageHero from '../../../components/ui/PageHero'
 import SectionHeading from '../../../components/ui/SectionHeading'
@@ -11,34 +12,25 @@ const PILARES = [
   {
     icon: Award,
     titulo: 'Calidad',
-    texto: 'Planes de inspección y ensayo, control de materiales y trazabilidad de cada actividad de obra.',
-    items: ['Planes de calidad por proyecto', 'Ensayos de laboratorio', 'Control documental'],
+    texto: 'Supervisión técnica y control de materiales en cada actividad de obra.',
+    items: ['Revisión de materiales', 'Supervisión técnica en obra', 'Entrega documentada'],
   },
   {
     icon: HardHat,
     titulo: 'Seguridad y salud en el trabajo',
-    texto: 'SG-SST conforme al Decreto 1072 de 2015 y la Resolución 0312 de 2019.',
-    items: ['Trabajo seguro en alturas', 'Análisis de riesgos por actividad', 'Capacitación permanente'],
+    texto: 'Prevención de riesgos y cuidado de las personas en cada frente de trabajo.',
+    items: ['Identificación de riesgos', 'Elementos de protección personal', 'Charlas de seguridad'],
   },
   {
     icon: Leaf,
     titulo: 'Gestión ambiental',
-    texto: 'Manejo responsable de residuos de construcción y demolición (RCD) y de los recursos de la obra.',
-    items: ['Planes de manejo ambiental', 'Gestión de RCD', 'Uso eficiente de agua y energía'],
+    texto: 'Manejo responsable de los residuos y los recursos de la obra.',
+    items: ['Orden y aseo en obra', 'Manejo de residuos', 'Uso eficiente de agua y energía'],
   },
 ]
 
-// Normativa que la empresa aplica en obra. La empresa NO tiene certificaciones ISO
-// (confirmado por el cliente, 2026-09-23): no anunciarlas aquí hasta que las obtenga.
-const NORMATIVA = [
-  { codigo: 'NSR-10', nombre: 'Reglamento colombiano de construcción sismo resistente' },
-  { codigo: 'Decreto 1072', nombre: 'Sistema de gestión de seguridad y salud en el trabajo (2015)' },
-  { codigo: 'Res. 0312', nombre: 'Estándares mínimos del SG-SST (2019)' },
-  { codigo: 'Res. 4272', nombre: 'Trabajo seguro en alturas (2021)' },
-]
-
 export default function CalidadPage() {
-  usePageMeta('Calidad y seguridad', 'Compromiso con la calidad, la seguridad y salud en el trabajo y el cuidado ambiental en las obras de PRODISTEC S.A.S.')
+  usePageMeta('Calidad y seguridad', `Compromiso con la calidad, la seguridad y salud en el trabajo y el cuidado ambiental en las obras de ${EMPRESA.nombre}`)
   return (
     <>
       <PageHero
@@ -78,21 +70,6 @@ export default function CalidadPage() {
               <p className="mt-1 text-sm font-semibold">Meta de accidentes graves en obra</p>
             </div>
           </Reveal>
-        </div>
-      </section>
-
-      <section className="bg-gray-100 py-24">
-        <div className="container-site">
-          <SectionHeading center eyebrow="Marco normativo" title="Normativa que aplicamos" text="Cada obra se ejecuta cumpliendo la regulación técnica y de seguridad vigente en Colombia." />
-          <div className="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-4">
-            {NORMATIVA.map((n) => (
-              <div key={n.codigo} className="bg-white border border-gray-200 p-8 text-center hover:border-ink transition-colors">
-                <FileCheck2 size={32} strokeWidth={1.5} className="mx-auto text-accent-dark" />
-                <div className="mt-4 font-display text-3xl font-bold">{n.codigo}</div>
-                <div className="mt-1 text-sm text-gray-600">{n.nombre}</div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 

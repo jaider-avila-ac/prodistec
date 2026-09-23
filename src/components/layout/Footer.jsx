@@ -18,6 +18,13 @@ const LEGAL_LINKS = [
   { to: '/legal/politica-de-cookies', label: 'Política de cookies' },
 ]
 
+// Solo se muestran las redes que tengan enlace en empresa.json
+const REDES = [
+  { href: EMPRESA.redes.linkedin, icon: Linkedin, label: 'LinkedIn' },
+  { href: EMPRESA.redes.instagram, icon: Instagram, label: 'Instagram' },
+  { href: EMPRESA.redes.facebook, icon: Facebook, label: 'Facebook' },
+].filter((r) => r.href)
+
 function Columna({ titulo, children }) {
   return (
     <div>
@@ -39,17 +46,15 @@ export default function Footer() {
             Empresa colombiana de obra civil y arquitectura. Ejecutamos proyectos de construcción,
             edificaciones e infraestructura urbana, vial, institucional y aeroportuaria.
           </p>
-          <div className="mt-6 flex gap-2">
-            {[
-              { href: EMPRESA.redes.linkedin, icon: Linkedin, label: 'LinkedIn' },
-              { href: EMPRESA.redes.instagram, icon: Instagram, label: 'Instagram' },
-              { href: EMPRESA.redes.facebook, icon: Facebook, label: 'Facebook' },
-            ].map(({ href, icon: Icon, label }) => (
-              <a key={label} href={href} aria-label={label} className="w-10 h-10 border border-white/15 flex items-center justify-center hover:bg-accent hover:text-ink hover:border-accent transition-colors">
-                <Icon size={17} />
-              </a>
-            ))}
-          </div>
+          {REDES.length > 0 && (
+            <div className="mt-6 flex gap-2">
+              {REDES.map(({ href, icon: Icon, label }) => (
+                <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label} className="w-10 h-10 border border-white/15 flex items-center justify-center hover:bg-accent hover:text-ink hover:border-accent transition-colors">
+                  <Icon size={17} />
+                </a>
+              ))}
+            </div>
+          )}
         </div>
 
         <div className="lg:col-span-3">

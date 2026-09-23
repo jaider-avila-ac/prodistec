@@ -8,7 +8,7 @@ import Reveal from '../../../components/ui/Reveal'
 const PERFILES = ['Ingenieros civiles', 'Arquitectos', 'Residentes de obra', 'Profesionales SST', 'Maestros de obra', 'Técnicos y oficiales']
 
 export default function TrabajaConNosotrosPage() {
-  usePageMeta('Trabaje con nosotros', 'Envíe su hoja de vida o inscríbase como proveedor de PRODISTEC S.A.S.')
+  usePageMeta('Trabaje con nosotros', `Envíe su hoja de vida o inscríbase como proveedor de ${EMPRESA.nombre}`)
   return (
     <>
       <PageHero
@@ -59,7 +59,7 @@ export default function TrabajaConNosotrosPage() {
           </Reveal>
         </div>
         <p className="container-site mt-8 text-sm text-gray-500">
-          Los datos personales recibidos se tratarán conforme a nuestra política de tratamiento de datos personales (Ley 1581 de 2012).
+          Los datos personales recibidos se tratarán conforme a nuestra política de tratamiento de datos personales.
         </p>
       </section>
     </>

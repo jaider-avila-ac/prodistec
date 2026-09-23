@@ -1,6 +1,7 @@
 import { Quote } from 'lucide-react'
 import { usePageMeta } from '../../../utils/seo'
 import { IMAGENES } from '../../../data/imagenes'
+import { EMPRESA } from '../../../data/empresa'
 import { COMPROMISO } from '../../../data/nosotros'
 import PageHero from '../../../components/ui/PageHero'
 import CtaBanner from '../../../components/ui/CtaBanner'
@@ -10,11 +11,11 @@ import ValoresGrid from '../components/ValoresGrid'
 import LineaTiempo from '../components/LineaTiempo'
 
 export default function NosotrosPage() {
-  usePageMeta('Nosotros', 'Conozca PRODISTEC S.A.S.: misión, visión, valores e historia de nuestra empresa de obra civil y arquitectura.')
+  usePageMeta('Nosotros', `Conozca ${EMPRESA.nombre}: misión, visión, valores e historia de nuestra empresa de obra civil y arquitectura.`)
   return (
     <>
       <PageHero
-        title="Somos PRODISTEC"
+        title={`Somos ${EMPRESA.nombreCorto}`}
         subtitle="Una empresa de obra civil y arquitectura construida sobre la ingeniería, el cumplimiento y el respeto por las personas."
         image={IMAGENES.nosotros.cabecera}
         breadcrumb={[{ label: 'Nosotros' }]}
@@ -29,7 +30,7 @@ export default function NosotrosPage() {
           </Reveal>
           <Reveal delay={120} className="lg:col-span-6 lg:col-start-7 space-y-5 text-gray-600 leading-relaxed">
             <p>
-              PRODISTEC S.A.S. es una sociedad colombiana especializada en obra civil y arquitectura.
+              {EMPRESA.nombre} es una sociedad colombiana especializada en obra civil y arquitectura.
               Participamos en proyectos de construcción, edificaciones, infraestructura urbana, vial,
               institucional y aeroportuaria, para entidades públicas y empresas privadas.
             </p>

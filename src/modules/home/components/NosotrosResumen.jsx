@@ -1,13 +1,14 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight, Check } from 'lucide-react'
 import { IMAGENES } from '../../../data/imagenes'
+import { EMPRESA } from '../../../data/empresa'
 import Reveal from '../../../components/ui/Reveal'
 
 const PUNTOS = [
   'Equipo de ingenieros, arquitectos y técnicos propios',
   'Experiencia en contratación pública y privada',
   'Control de calidad en cada etapa de la obra',
-  'Cumplimiento de NSR-10 y normativa vigente',
+  'Acompañamiento desde la planeación hasta la entrega',
 ]
 
 export default function NosotrosResumen() {
@@ -18,8 +19,8 @@ export default function NosotrosResumen() {
           <div className="absolute -top-6 -left-6 w-2/3 h-2/3 bg-accent" />
           <img src={IMAGENES.inicio.quienesSomos} alt="Estructuras en concreto en ejecución" className="relative w-full aspect-[4/5] object-cover" />
           <div className="absolute -bottom-8 right-0 sm:-right-8 bg-ink text-white p-6 sm:p-8 max-w-[260px]">
-            <div className="font-display text-5xl font-bold text-accent leading-none">NSR-10</div>
-            <p className="mt-2 text-sm text-gray-300">Diseño y construcción sismo resistente en cada proyecto.</p>
+            <div className="font-display text-5xl font-bold text-accent leading-none">08</div>
+            <p className="mt-2 text-sm text-gray-300">Líneas de servicio para cubrir todo el proyecto.</p>
           </div>
         </Reveal>
 
@@ -29,7 +30,7 @@ export default function NosotrosResumen() {
             Ingeniería que se nota en cada obra
           </h2>
           <p className="mt-6 text-gray-600 leading-relaxed">
-            PRODISTEC S.A.S. es una empresa colombiana dedicada a la obra civil y la arquitectura.
+            {EMPRESA.nombre} es una empresa colombiana dedicada a la obra civil y la arquitectura.
             Ejecutamos proyectos de construcción, edificaciones e infraestructura para clientes
             públicos y privados, desde la planeación hasta la entrega.
           </p>
