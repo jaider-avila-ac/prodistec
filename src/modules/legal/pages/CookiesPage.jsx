@@ -19,8 +19,6 @@ export default function CookiesPage() {
         Algunos contenidos incrustados, como el mapa de ubicación (Google Maps), pueden instalar cookies propias de esos
         servicios, sujetas a sus políticas de privacidad.
       </p>
-      <h3>Analíticas</h3>
-      <p>[Por definir: si se instala una herramienta de analítica, como Google Analytics, describirla aquí.]</p>
 
       <h2>3. Cómo desactivarlas</h2>
       <p>

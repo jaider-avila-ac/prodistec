@@ -47,7 +47,8 @@ quedan en el HTML aunque el navegador no ejecute JavaScript. Esto lo hace el plu
 
 ## Información pendiente del cliente
 
-Todo lo que aparece entre corchetes `[ ]` en el sitio es provisional.
+El sitio ya no muestra notas de "provisional": lo pendiente se lista aquí y en el
+cuestionario para el cliente (`Cuestionario_PRODISTEC.docx`, fuera de este repositorio).
 
 **Datos corporativos** (`src/data/empresa.json`; cifras en `src/data/empresa.js`)
 - Ya recibidos: NIT 900.914.555-3, Calle 24 # 3-99 Of. 1506 (Santa Marta), cel. y WhatsApp +57 324 569 2973

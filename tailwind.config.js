@@ -10,8 +10,8 @@ export default {
         // accent-dark → hover de botones CTA
         // ink         → fondos oscuros (secciones, footer)
         // ────────────────────────────────────────────────────────────────────
-        accent:        '#F2A900',
-        'accent-dark': '#D18E00',
+        accent:        '#FBB603',
+        'accent-dark': '#D99A00',
         ink:           '#0E1116',
       },
       fontFamily: {

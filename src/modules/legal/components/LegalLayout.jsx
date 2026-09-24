@@ -35,9 +35,6 @@ export default function LegalLayout({ title, children }) {
             <p className="mt-8 text-xs text-gray-400">Última actualización: {ULTIMA_ACTUALIZACION}</p>
           </aside>
           <article className="lg:col-span-8 lg:col-start-5 prose-legal">
-            <p className="!text-sm bg-gray-100 border-l-4 border-accent p-4">
-              Documento de referencia. Debe ser revisado y ajustado por el asesor jurídico de la empresa antes de su publicación definitiva.
-            </p>
             {children}
           </article>
         </div>

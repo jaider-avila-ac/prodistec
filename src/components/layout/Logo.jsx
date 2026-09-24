@@ -1,17 +1,16 @@
 import { EMPRESA } from '../../data/empresa'
+import { IMAGENES } from '../../data/imagenes'
 
-/** Logo provisional tipográfico — reemplazar por el logo oficial (SVG) cuando el cliente lo entregue. */
-export default function Logo({ light = true }) {
+/** Imagotipo oficial (letras blancas: usar solo sobre fondos oscuros, como el header y el footer). */
+export default function Logo({ className = 'h-9 sm:h-11' }) {
   return (
-    <span className="flex items-center gap-3 select-none">
-      <span className="relative w-10 h-10 bg-accent flex items-center justify-center">
-        <span className="font-display text-2xl font-extrabold text-ink leading-none">P</span>
-        <span className="absolute -bottom-1 -right-1 w-3 h-3 bg-white" />
-      </span>
-      <span className="leading-none">
-        <span className={`block font-display text-2xl font-extrabold tracking-wide ${light ? 'text-white' : 'text-ink'}`}>{EMPRESA.nombreCorto}</span>
-        <span className="block text-[9px] font-semibold uppercase tracking-[0.3em] text-gray-400 mt-1">{EMPRESA.lema}</span>
-      </span>
-    </span>
+    <img
+      src={IMAGENES.marca.imagotipo}
+      alt={EMPRESA.nombre}
+      width="1856"
+      height="371"
+      className={`w-auto select-none ${className}`}
+      draggable="false"
+    />
   )
 }

@@ -55,8 +55,6 @@ export default function ProyectosPage() {
               </div>
             ))}
           </div>
-
-          <p className="mt-10 text-sm italic text-gray-400">[Proyectos de ejemplo: el cliente debe suministrar su portafolio real con fotografías.]</p>
         </div>
       </section>
 

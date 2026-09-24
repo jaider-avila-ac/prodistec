@@ -41,7 +41,7 @@ export default function Footer() {
       <div className="h-1 bg-accent" />
       <div className="container-site py-16 grid gap-12 sm:grid-cols-2 lg:grid-cols-12">
         <div className="lg:col-span-4">
-          <Logo />
+          <Logo className="h-12" />
           <p className="mt-6 text-sm leading-relaxed max-w-sm">
             Empresa colombiana de obra civil y arquitectura. Ejecutamos proyectos de construcción,
             edificaciones e infraestructura urbana, vial, institucional y aeroportuaria.
@@ -91,7 +91,10 @@ export default function Footer() {
 
       <div className="border-t border-white/10">
         <div className="container-site py-6 flex flex-col lg:flex-row gap-4 lg:items-center lg:justify-between text-xs">
-          <p>© {anio} {EMPRESA.nombre} · NIT {EMPRESA.nit}. Todos los derechos reservados.</p>
+          <div className="space-y-1">
+            <p>© {anio} {EMPRESA.nombre} · NIT {EMPRESA.nit}. Todos los derechos reservados.</p>
+            <p className="text-gray-500">Desarrollado por <span className="font-semibold text-gray-300">AJ Studio</span></p>
+          </div>
           <ul className="flex flex-wrap gap-x-6 gap-y-2">
             {LEGAL_LINKS.map((l) => (
               <li key={l.to}><Link to={l.to} className="hover:text-accent">{l.label}</Link></li>

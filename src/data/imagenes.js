@@ -11,6 +11,12 @@
 const IMG = '/img'
 
 export const IMAGENES = {
+  // Logos oficiales (en la raíz de public/). El isotipo también es el ícono de la
+  // pestaña del navegador, declarado en index.html.
+  marca: {
+    imagotipo: '/imagotipo-proditec.svg', // logo completo: header y footer
+    isotipo: '/isotipoproditec.svg', // solo el símbolo circular
+  },
   general: {
     ctaCotizacion: `${IMG}/general/cta-cotizacion.webp`, // franja amarilla "¿Tiene un proyecto en mente?"
   },

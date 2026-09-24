@@ -39,7 +39,6 @@ export default function NosotrosPage() {
               en el trabajo y personal técnico de obra, lo que nos permite acompañar cada proyecto desde
               su planeación hasta su entrega y cierre contractual.
             </p>
-            <p className="text-sm italic text-gray-400">[Texto de ejemplo: el cliente debe ajustar la reseña con su historia real.]</p>
           </Reveal>
         </div>
         <div className="container-site mt-16 grid grid-cols-3 gap-4">
