@@ -6,7 +6,6 @@ import { NosotrosPage } from './modules/nosotros'
 import { ServiciosPage, ServicioDetallePage } from './modules/servicios'
 import { ProyectosPage, ProyectoDetallePage } from './modules/proyectos'
 import { CalidadPage } from './modules/calidad'
-import { TrabajaConNosotrosPage } from './modules/empleo'
 import { ContactoPage } from './modules/contacto'
 import { TerminosPage, PrivacidadPage, CookiesPage } from './modules/legal'
 import { NotFoundPage } from './modules/error'
@@ -30,7 +29,9 @@ export default function App() {
           <Route path="proyectos" element={<ProyectosPage />} />
           <Route path="proyectos/:slug" element={<ProyectoDetallePage />} />
           <Route path="calidad-y-seguridad" element={<CalidadPage />} />
-          <Route path="trabaja-con-nosotros" element={<TrabajaConNosotrosPage />} />
+          {/* "Trabaje con nosotros" (src/modules/empleo) está desactivada a pedido del cliente.
+              Para volver a publicarla: importar TrabajaConNosotrosPage, agregar aquí la ruta
+              "trabaja-con-nosotros" y los enlaces en NAV (data/empresa.js) y en el Footer. */}
           <Route path="contacto" element={<ContactoPage />} />
           <Route path="legal/terminos-y-condiciones" element={<TerminosPage />} />
           <Route path="legal/politica-de-privacidad" element={<PrivacidadPage />} />

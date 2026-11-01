@@ -24,7 +24,7 @@ src/
     servicios/  Listado + detalle por servicio
     proyectos/  Portafolio filtrable + detalle de proyecto
     calidad/    Calidad, SST y ambiente, normativa aplicada
-    empleo/     Trabaje con nosotros (hojas de vida y proveedores)
+    empleo/     Trabaje con nosotros (desactivada: sin ruta ni enlaces, ver App.jsx)
     contacto/   Formulario, canales y mapa
     legal/      Términos, tratamiento de datos, cookies
     error/      404

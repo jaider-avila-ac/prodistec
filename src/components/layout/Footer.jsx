@@ -8,7 +8,6 @@ const EMPRESA_LINKS = [
   { to: '/nosotros', label: 'Nosotros' },
   { to: '/proyectos', label: 'Proyectos' },
   { to: '/calidad-y-seguridad', label: 'Calidad y seguridad' },
-  { to: '/trabaja-con-nosotros', label: 'Trabaje con nosotros' },
   { to: '/contacto', label: 'Contacto' },
 ]
 
