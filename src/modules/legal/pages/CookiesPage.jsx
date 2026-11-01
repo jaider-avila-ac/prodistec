@@ -16,8 +16,8 @@ export default function CookiesPage() {
       <p>Permiten el funcionamiento básico del sitio. No requieren consentimiento.</p>
       <h3>De terceros</h3>
       <p>
-        Algunos contenidos incrustados, como el mapa de ubicación (Google Maps), pueden instalar cookies propias de esos
-        servicios, sujetas a sus políticas de privacidad.
+        El sitio no incrusta contenidos de terceros. Si el usuario sigue un enlace externo (por ejemplo, a WhatsApp), ese
+        servicio puede usar sus propias cookies, sujetas a sus políticas de privacidad.
       </p>
 
       <h2>3. Cómo desactivarlas</h2>

@@ -3,8 +3,8 @@
 // Para cambiar una foto basta con reemplazar el archivo manteniendo el MISMO
 // nombre (recomendado: WebP horizontal de 1600 px de ancho, unos 300 KB).
 //
-// Las de servicios y proyectos se definen en servicios.js y proyectos.js
-// (public/img/servicios/<servicio>.webp y public/img/proyectos/<proyecto>/...).
+// Las de los proyectos se definen en proyectos.js (public/img/proyectos/<proyecto>/...).
+// Los servicios no llevan foto propia: usan su ícono.
 //
 // Fotos actuales: obras reales de PRODISTEC (Aeropuerto Contador, Aracataca,
 // Pivijay, Nueva Venecia y Mi Calle). Cada archivo .webp lleva al lado su copia .jpg.
@@ -55,9 +55,6 @@ export const IMAGENES = {
     fondo: `${IMG}/error-404/fondo.webp`,
   },
 }
-
-/** Ruta de la imagen de un servicio: public/img/servicios/<slug>.webp */
-export const imagenServicio = (slug) => `${IMG}/servicios/${slug}.webp`
 
 /** Portada y galería de un proyecto: public/img/proyectos/<slug>/portada.webp y galeria-N.webp */
 export const imagenesProyecto = (slug, fotosGaleria = 3) => ({

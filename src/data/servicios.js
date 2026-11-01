@@ -1,5 +1,4 @@
 import { HardHat, Building2, Route, PlaneTakeoff, DraftingCompass, Cog, ClipboardList, Hammer } from 'lucide-react'
-import { imagenServicio } from './imagenes'
 
 // Líneas de negocio suministradas por el cliente. "resumen" es el texto original;
 // "descripcion" y "alcances" son redacción de ejemplo para que el cliente la ajuste.
@@ -69,8 +68,5 @@ export const SERVICIOS = [
     alcances: ['Remodelación de oficinas y sedes', 'Actualización de redes y acabados', 'Accesibilidad y cumplimiento normativo', 'Mantenimiento de infraestructura'],
   },
 ]
-
-// Cada servicio usa public/img/servicios/<slug>.webp
-SERVICIOS.forEach((s) => { s.imagen = imagenServicio(s.slug) })
 
 export const getServicio = (slug) => SERVICIOS.find((s) => s.slug === slug)

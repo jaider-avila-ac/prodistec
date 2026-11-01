@@ -2,6 +2,7 @@ import { Link, NavLink, useParams } from 'react-router-dom'
 import { Check, ArrowRight, Phone } from 'lucide-react'
 import { usePageMeta } from '../../../utils/seo'
 import { EMPRESA } from '../../../data/empresa'
+import { IMAGENES } from '../../../data/imagenes'
 import { SERVICIOS, getServicio } from '../../../data/servicios'
 import { PROCESO } from '../../../data/nosotros'
 import PageHero from '../../../components/ui/PageHero'
@@ -18,7 +19,7 @@ export default function ServicioDetallePage() {
       <PageHero
         title={servicio.titulo}
         subtitle={servicio.resumen}
-        image={servicio.imagen}
+        image={IMAGENES.servicios.cabecera}
         breadcrumb={[{ label: 'Servicios', to: '/servicios' }, { label: servicio.titulo }]}
       />
 
@@ -26,8 +27,7 @@ export default function ServicioDetallePage() {
         <div className="container-site grid lg:grid-cols-12 gap-12">
           {/* Contenido */}
           <article className="lg:col-span-8">
-            <img src={servicio.imagen} alt={servicio.titulo} className="w-full aspect-video object-cover" />
-            <h2 className="mt-10 text-4xl font-bold">Descripción del servicio</h2>
+            <h2 className="text-4xl font-bold">Descripción del servicio</h2>
             <p className="mt-4 text-gray-600 leading-relaxed text-lg">{servicio.descripcion}</p>
 
             <h2 className="mt-12 text-4xl font-bold">Alcance</h2>

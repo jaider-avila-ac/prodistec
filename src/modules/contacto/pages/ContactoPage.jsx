@@ -59,16 +59,6 @@ export default function ContactoPage() {
           </aside>
         </div>
       </section>
-
-      <section className="h-96 bg-gray-200">
-        <iframe
-          title="Ubicación de la oficina"
-          src={`https://www.google.com/maps?q=${encodeURIComponent(EMPRESA.mapaQuery)}&output=embed`}
-          className="w-full h-full border-0 grayscale"
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-        />
-      </section>
     </>
   )
 }

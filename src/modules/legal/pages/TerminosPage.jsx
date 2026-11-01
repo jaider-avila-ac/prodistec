@@ -55,7 +55,7 @@ export default function TerminosPage() {
 
       <h2>8. Enlaces a terceros</h2>
       <p>
-        El sitio puede contener enlaces a sitios de terceros (por ejemplo, redes sociales o mapas). La Empresa no es responsable
+        El sitio puede contener enlaces a sitios de terceros (por ejemplo, WhatsApp o redes sociales). La Empresa no es responsable
         por su contenido ni por sus políticas de privacidad.
       </p>
 

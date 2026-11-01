@@ -46,7 +46,8 @@ export default function PrivacidadPage() {
       <h2>5. Entrega de datos a terceros</h2>
       <p>
         La Empresa podrá compartir los datos personales con terceros únicamente cuando sea necesario para cumplir las
-        finalidades descritas en esta política. Los datos no se venden ni se ceden para fines distintos.
+        finalidades descritas en esta política. Los mensajes del formulario de contacto se entregan a la Empresa por medio de
+        un servicio externo de envío de correo. Los datos no se venden ni se ceden para fines distintos.
       </p>
 
       <h2>6. Derechos del titular</h2>

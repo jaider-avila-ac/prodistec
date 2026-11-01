@@ -25,7 +25,7 @@ src/
     proyectos/  Portafolio filtrable + detalle de proyecto
     calidad/    Calidad, SST y ambiente, normativa aplicada
     empleo/     Trabaje con nosotros (desactivada: sin ruta ni enlaces, ver App.jsx)
-    contacto/   Formulario, canales y mapa
+    contacto/   Formulario y canales de atención
     legal/      Términos, tratamiento de datos, cookies
     error/      404
 ```
@@ -36,8 +36,8 @@ Todo el texto editable está en `src/data/`: el cliente no necesita tocar compon
 ### Datos de la empresa: `src/data/empresa.json`
 
 Nombre, NIT, dirección, teléfono, WhatsApp, correos, horario y redes sociales se cambian
-**solo en este archivo** y se actualizan en todo el sitio. Los enlaces `tel:`, WhatsApp y el
-mapa se generan solos a partir del teléfono y la dirección. Una red social con valor `""`
+**solo en este archivo** y se actualizan en todo el sitio. Los enlaces `tel:` y WhatsApp se
+generan solos a partir del teléfono. Una red social con valor `""`
 no muestra su ícono.
 
 Al compilar (`npm run build`), esos datos también se escriben en el `index.html` (título,
@@ -56,8 +56,10 @@ consultas de datos personales a cargo de Recursos Humanos, hojas de vida guardad
 
 **Datos corporativos** (`src/data/empresa.json`; cifras en `src/data/empresa.js`)
 - Ya recibidos: NIT, dirección, cel. y WhatsApp, horario y atención en oficina
-- Correo de la empresa (usa Gmail u Outlook, pero no lo escribió). Mientras esté vacío, el sitio
-  no muestra correo y el formulario, las hojas de vida y los proveedores se envían por WhatsApp
+- Formulario de contacto: llega a `correoFormulario` (prodistecsas01@gmail.com) por FormSubmit,
+  sin cuenta. El primer envío manda a ese correo un enlace "Activate Form" que el dueño debe
+  presionar una vez; antes de eso los mensajes no se entregan. Si el envío falla, se ofrece WhatsApp
+- Correo público de la empresa (`correos.general`): vacío, el sitio no muestra ninguno
 - Redes sociales (las dejó en blanco: no se muestran). No tiene perfil de Google Maps
 - Cifras reales: años de experiencia, proyectos ejecutados, m² construidos. Sin datos, la franja
   de cifras del inicio no se muestra
@@ -89,7 +91,7 @@ public/img/
   general/               cta-cotizacion.webp (franja amarilla de cierre, varias páginas)
   inicio/                hero-fondo-1..4.webp, quienes-somos.webp
   nosotros/              cabecera, presentacion-grande, presentacion-pequena, politica-fondo
-  servicios/             cabecera.webp + una foto por servicio (construccion.webp, edificaciones.webp, ...)
+  servicios/             cabecera.webp (los servicios no llevan foto propia)
   proyectos/             cabecera.webp + una carpeta por proyecto: portada.webp, galeria-1..3.webp
   calidad-y-seguridad/   cabecera.webp, politica.webp
   trabaja-con-nosotros/  cabecera.webp

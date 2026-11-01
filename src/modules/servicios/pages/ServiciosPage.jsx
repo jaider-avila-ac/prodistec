@@ -31,24 +31,25 @@ export default function ServiciosPage() {
         </ul>
       </nav>
 
-      {/* Filas en zigzag */}
+      {/* Filas alternadas: número, ícono y título a la izquierda; contenido a la derecha */}
       <div>
         {SERVICIOS.map((s, i) => {
-          const invertido = i % 2 === 1
+          const alterna = i % 2 === 1
           return (
-            <section key={s.slug} id={s.slug} className={`scroll-mt-40 ${invertido ? 'bg-gray-100' : 'bg-white'}`}>
-              <div className="container-site py-20 sm:py-24 grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-                <Reveal className={`relative ${invertido ? 'lg:order-2' : ''}`}>
-                  <img src={s.imagen} alt={s.titulo} loading="lazy" className="w-full aspect-[4/3] object-cover" />
-                  <div className={`absolute -bottom-6 ${invertido ? 'left-6' : 'right-6'} bg-ink w-20 h-20 flex items-center justify-center`}>
-                    <s.icon size={34} strokeWidth={1.5} className="text-accent" />
+            <section key={s.slug} id={s.slug} className={`scroll-mt-40 ${alterna ? 'bg-gray-100' : 'bg-white'}`}>
+              <div className="container-site py-16 sm:py-20 grid lg:grid-cols-12 gap-8 lg:gap-16">
+                <Reveal className="lg:col-span-5">
+                  <div className="flex items-start gap-5">
+                    <div className="bg-ink w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center shrink-0">
+                      <s.icon size={34} strokeWidth={1.5} className="text-accent" />
+                    </div>
+                    <span className="font-display text-7xl font-bold text-gray-200 leading-none">{String(i + 1).padStart(2, '0')}</span>
                   </div>
+                  <h2 className="mt-6 text-4xl sm:text-5xl font-bold leading-[0.95]">{s.titulo}</h2>
+                  <p className="mt-3 text-accent-dark font-semibold">{s.resumen}</p>
                 </Reveal>
-                <Reveal delay={120}>
-                  <span className="font-display text-7xl font-bold text-gray-200 leading-none">{String(i + 1).padStart(2, '0')}</span>
-                  <h2 className="mt-2 text-4xl sm:text-5xl font-bold leading-[0.95]">{s.titulo}</h2>
-                  <p className="mt-2 text-accent-dark font-semibold">{s.resumen}</p>
-                  <p className="mt-5 text-gray-600 leading-relaxed">{s.descripcion}</p>
+                <Reveal delay={120} className="lg:col-span-7">
+                  <p className="text-gray-600 leading-relaxed">{s.descripcion}</p>
                   <ul className="mt-6 grid sm:grid-cols-2 gap-3">
                     {s.alcances.map((a) => (
                       <li key={a} className="flex gap-2 text-sm"><Check size={16} className="text-accent-dark shrink-0 mt-0.5" /> {a}</li>
