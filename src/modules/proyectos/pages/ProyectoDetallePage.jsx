@@ -24,7 +24,7 @@ export default function ProyectoDetallePage() {
     ['Área / longitud', proyecto.area],
     ['Categoría', proyecto.categoria],
     ['Estado', proyecto.estado],
-  ]
+  ].filter(([, v]) => v)
 
   return (
     <>

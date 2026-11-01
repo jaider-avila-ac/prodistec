@@ -82,7 +82,7 @@ export default function Footer() {
             <ul className="space-y-4 text-sm">
               <li className="flex gap-3"><MapPin size={16} className="text-accent shrink-0 mt-0.5" /> <span>{EMPRESA.direccion}<br />{EMPRESA.ciudad}</span></li>
               <li><a href={EMPRESA.telefonoHref} className="flex gap-3 hover:text-accent"><Phone size={16} className="text-accent shrink-0" /> {EMPRESA.telefono}</a></li>
-              <li><a href={`mailto:${EMPRESA.email}`} className="flex gap-3 hover:text-accent break-all"><Mail size={16} className="text-accent shrink-0" /> {EMPRESA.email}</a></li>
+              {EMPRESA.email && <li><a href={`mailto:${EMPRESA.email}`} className="flex gap-3 hover:text-accent break-all"><Mail size={16} className="text-accent shrink-0" /> {EMPRESA.email}</a></li>}
               <li className="flex gap-3"><Clock size={16} className="text-accent shrink-0 mt-0.5" /> {EMPRESA.horario}</li>
             </ul>
           </Columna>

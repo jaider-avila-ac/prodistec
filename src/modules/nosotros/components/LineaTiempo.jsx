@@ -3,6 +3,7 @@ import SectionHeading from '../../../components/ui/SectionHeading'
 import Reveal from '../../../components/ui/Reveal'
 
 export default function LineaTiempo() {
+  if (!HISTORIA.length) return null
   return (
     <section className="py-24 sm:py-32">
       <div className="container-site">

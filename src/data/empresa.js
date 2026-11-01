@@ -19,21 +19,27 @@ export const EMPRESA = {
   telefono: datos.telefono,
   telefonoHref: `tel:+${soloDigitos(datos.telefono)}`,
   whatsapp: soloDigitos(datos.whatsapp),
+  // Correos opcionales: uno vacío hereda el general; si el general también está
+  // vacío, el sitio no muestra correo y los mensajes se envían por WhatsApp.
   email: datos.correos.general,
-  emailTalento: datos.correos.talentoHumano,
-  emailProveedores: datos.correos.compras,
+  emailTalento: datos.correos.talentoHumano || datos.correos.general,
+  emailProveedores: datos.correos.compras || datos.correos.general,
+  emailDatos: datos.correos.datosPersonales || datos.correos.general,
   horario: datos.horario,
+  atencionOficina: datos.atencionOficina,
+  legal: datos.legal,
   mapaQuery: `${datos.direccion.split(',')[0]}, ${datos.ciudad}, ${datos.departamento}, ${datos.pais}`,
   redes: datos.redes, // una red con valor vacío no se muestra
 }
 
-// Cifras de la franja de inicio — [valores de ejemplo, confirmar con el cliente]
-export const CIFRAS = [
-  { valor: 10, sufijo: '+', etiqueta: 'Años de experiencia' },
-  { valor: 60, sufijo: '+', etiqueta: 'Proyectos ejecutados' },
-  { valor: 120, sufijo: 'K', etiqueta: 'm² construidos' },
-  { valor: 8, sufijo: '', etiqueta: 'Líneas de servicio' },
-]
+/** Enlace de WhatsApp con un mensaje prellenado */
+export const enlaceWhatsApp = (texto) =>
+  `https://wa.me/${EMPRESA.whatsapp}${texto ? `?text=${encodeURIComponent(texto)}` : ''}`
+
+
+// Cifras de la franja de inicio: solo datos reales confirmados por el cliente
+// ({ valor, sufijo, etiqueta }). Si la lista está vacía, la franja no se muestra.
+export const CIFRAS = []
 
 export const NAV = [
   { to: '/', label: 'Inicio' },

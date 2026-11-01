@@ -41,9 +41,8 @@ export default function NosotrosPage() {
             </p>
           </Reveal>
         </div>
-        <div className="container-site mt-16 grid grid-cols-3 gap-4">
-          <img src={IMAGENES.nosotros.presentacionGrande} alt="" className="col-span-2 h-64 sm:h-96 w-full object-cover" />
-          <img src={IMAGENES.nosotros.presentacionPequena} alt="" className="h-64 sm:h-96 w-full object-cover" />
+        <div className="container-site mt-16">
+          <img src={IMAGENES.nosotros.presentacionGrande} alt="" className="h-64 sm:h-96 w-full object-cover" />
         </div>
       </section>
 

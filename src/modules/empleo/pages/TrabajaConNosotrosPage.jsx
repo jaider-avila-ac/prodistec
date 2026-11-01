@@ -1,11 +1,20 @@
-import { Mail, Users, Truck, ArrowRight } from 'lucide-react'
+import { Mail, MessageCircle, Users, Truck, ArrowRight } from 'lucide-react'
 import { usePageMeta } from '../../../utils/seo'
-import { EMPRESA } from '../../../data/empresa'
+import { EMPRESA, enlaceWhatsApp } from '../../../data/empresa'
 import { IMAGENES } from '../../../data/imagenes'
 import PageHero from '../../../components/ui/PageHero'
 import Reveal from '../../../components/ui/Reveal'
 
 const PERFILES = ['Ingenieros civiles', 'Arquitectos', 'Residentes de obra', 'Profesionales SST', 'Maestros de obra', 'Técnicos y oficiales']
+
+/** Canal de envío: el correo del área si existe; si no, WhatsApp con el mensaje prellenado. */
+const canal = (email, asunto) => email
+  ? { href: `mailto:${email}?subject=${encodeURIComponent(asunto)}`, icon: Mail, detalle: email, externo: false }
+  : { href: enlaceWhatsApp(`Hola, ${asunto.toLowerCase()}.`), icon: MessageCircle, detalle: `WhatsApp ${EMPRESA.telefono}`, externo: true }
+
+const TALENTO = canal(EMPRESA.emailTalento, 'Quiero enviar mi hoja de vida')
+const PROVEEDORES = canal(EMPRESA.emailProveedores, 'Quiero inscribirme como proveedor')
+const enlaceExterno = (c) => (c.externo ? { target: '_blank', rel: 'noopener noreferrer' } : {})
 
 export default function TrabajaConNosotrosPage() {
   usePageMeta('Trabaje con nosotros', `Envíe su hoja de vida o inscríbase como proveedor de ${EMPRESA.nombre}`)
@@ -33,10 +42,10 @@ export default function TrabajaConNosotrosPage() {
                 <span key={p} className="border border-white/20 px-3 py-1.5 text-xs uppercase tracking-wider text-gray-300">{p}</span>
               ))}
             </div>
-            <a href={`mailto:${EMPRESA.emailTalento}?subject=Hoja de vida`} className="btn-accent mt-10">
-              <Mail size={16} /> Enviar hoja de vida
+            <a href={TALENTO.href} {...enlaceExterno(TALENTO)} className="btn-accent mt-10">
+              <TALENTO.icon size={16} /> Enviar hoja de vida
             </a>
-            <p className="mt-4 text-xs text-gray-500">{EMPRESA.emailTalento}</p>
+            <p className="mt-4 text-xs text-gray-500">{TALENTO.detalle}</p>
           </Reveal>
 
           {/* Proveedores */}
@@ -52,14 +61,15 @@ export default function TrabajaConNosotrosPage() {
                 <li key={d} className="flex items-center gap-3"><span className="w-2 h-2 bg-ink" /> {d}</li>
               ))}
             </ul>
-            <a href={`mailto:${EMPRESA.emailProveedores}?subject=Inscripción de proveedor`} className="btn-dark mt-10">
+            <a href={PROVEEDORES.href} {...enlaceExterno(PROVEEDORES)} className="btn-dark mt-10">
               Inscribirse como proveedor <ArrowRight size={16} />
             </a>
-            <p className="mt-4 text-xs text-ink/60">{EMPRESA.emailProveedores}</p>
+            <p className="mt-4 text-xs text-ink/60">{PROVEEDORES.detalle}</p>
           </Reveal>
         </div>
         <p className="container-site mt-8 text-sm text-gray-500">
-          Los datos personales recibidos se tratarán conforme a nuestra política de tratamiento de datos personales.
+          Los datos personales recibidos se tratarán conforme a nuestra política de tratamiento de datos personales. Las hojas
+          de vida de aspirantes no seleccionados se conservan durante {EMPRESA.legal.conservacionHojasDeVida} y luego se eliminan.
         </p>
       </section>
     </>

@@ -105,7 +105,7 @@ export default function HeroInicio() {
               />
             ))}
           </div>
-          <a href="#cifras" className="ml-auto text-white/60 hover:text-accent animate-bounce" aria-label="Bajar">
+          <a href="#quienes-somos" className="ml-auto text-white/60 hover:text-accent animate-bounce" aria-label="Bajar">
             <ChevronDown size={26} />
           </a>
         </div>

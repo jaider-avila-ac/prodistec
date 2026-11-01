@@ -6,7 +6,8 @@
 // Las de servicios y proyectos se definen en servicios.js y proyectos.js
 // (public/img/servicios/<servicio>.webp y public/img/proyectos/<proyecto>/...).
 //
-// Fotos actuales: de EJEMPLO (Pexels, perfil @betongsmcsg).
+// Fotos actuales: obras reales de PRODISTEC (Aeropuerto Contador, Aracataca,
+// Pivijay, Nueva Venecia y Mi Calle). Cada archivo .webp lleva al lado su copia .jpg.
 // ─────────────────────────────────────────────────────────────────────────────
 const IMG = '/img'
 
@@ -32,7 +33,6 @@ export const IMAGENES = {
   nosotros: {
     cabecera: `${IMG}/nosotros/cabecera.webp`,
     presentacionGrande: `${IMG}/nosotros/presentacion-grande.webp`,
-    presentacionPequena: `${IMG}/nosotros/presentacion-pequena.webp`,
     politicaFondo: `${IMG}/nosotros/politica-fondo.webp`,
   },
   servicios: {

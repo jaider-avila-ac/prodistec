@@ -2,9 +2,9 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Send, CheckCircle2 } from 'lucide-react'
 import { SERVICIOS } from '../../../data/servicios'
-import { enviarContacto } from '../../../services/contactoService'
+import { enviarContacto, CANAL_CONTACTO } from '../../../services/contactoService'
 
-const INICIAL = { nombre: '', empresa: '', email: '', telefono: '', servicio: '', mensaje: '', acepta: false }
+const INICIAL = { nombre: '', empresa: '', email: '', telefono: '', servicio: '', mensaje: '', acepta: false, aceptaComercial: false }
 
 export default function ContactoForm() {
   const [form, setForm] = useState(INICIAL)
@@ -24,7 +24,9 @@ export default function ContactoForm() {
       <div className="border border-gray-200 p-10 text-center fade-in">
         <CheckCircle2 size={48} className="mx-auto text-accent-dark" />
         <h3 className="mt-4 text-3xl font-bold">Gracias por escribirnos</h3>
-        <p className="mt-2 text-gray-600">Se abrió su programa de correo con el mensaje listo para enviar.</p>
+        <p className="mt-2 text-gray-600">
+          {CANAL_CONTACTO === 'correo' ? 'Se abrió su programa de correo' : 'Se abrió WhatsApp'} con el mensaje listo para enviar.
+        </p>
         <button type="button" onClick={() => setEnviado(false)} className="btn-dark mt-6">Enviar otro mensaje</button>
       </div>
     )
@@ -66,6 +68,10 @@ export default function ContactoForm() {
           Autorizo el tratamiento de mis datos personales conforme a la{' '}
           <Link to="/legal/politica-de-privacidad" className="underline hover:text-ink">política de tratamiento de datos</Link>.
         </span>
+      </label>
+      <label className="sm:col-span-2 flex items-start gap-3 text-sm text-gray-600">
+        <input type="checkbox" checked={form.aceptaComercial} onChange={set('aceptaComercial')} className="mt-1 w-4 h-4 accent-ink" />
+        <span>Acepto recibir información comercial y novedades de la empresa (opcional).</span>
       </label>
       <div className="sm:col-span-2">
         <button type="submit" className="btn-accent w-full sm:w-auto">Enviar mensaje <Send size={16} /></button>

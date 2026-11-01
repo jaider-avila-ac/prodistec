@@ -13,11 +13,11 @@ const PUNTOS = [
 
 export default function NosotrosResumen() {
   return (
-    <section className="py-24 sm:py-32 overflow-hidden">
+    <section id="quienes-somos" className="py-24 sm:py-32 overflow-hidden scroll-mt-20">
       <div className="container-site grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
         <Reveal className="relative">
           <div className="absolute -top-6 -left-6 w-2/3 h-2/3 bg-accent" />
-          <img src={IMAGENES.inicio.quienesSomos} alt="Estructuras en concreto en ejecución" className="relative w-full aspect-[4/5] object-cover" />
+          <img src={IMAGENES.inicio.quienesSomos} alt="Corredor de la institución educativa en Pivijay" className="relative w-full aspect-[4/5] object-cover" />
           <div className="absolute -bottom-8 right-0 sm:-right-8 bg-ink text-white p-6 sm:p-8 max-w-[260px]">
             <div className="font-display text-5xl font-bold text-accent leading-none">08</div>
             <p className="mt-2 text-sm text-gray-300">Líneas de servicio para cubrir todo el proyecto.</p>

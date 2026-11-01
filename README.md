@@ -50,23 +50,27 @@ quedan en el HTML aunque el navegador no ejecute JavaScript. Esto lo hace el plu
 El sitio ya no muestra notas de "provisional": lo pendiente se lista aquí y en el
 cuestionario para el cliente (`Cuestionario_PRODISTEC.docx`, fuera de este repositorio).
 
+Cuestionario recibido y aplicado: horario, atención con cita previa, misión, visión y datos
+para las páginas legales (cotizaciones gratuitas con validez de 30 días, reclamos en Santa Marta,
+consultas de datos personales a cargo de Recursos Humanos, hojas de vida guardadas 6 meses).
+
 **Datos corporativos** (`src/data/empresa.json`; cifras en `src/data/empresa.js`)
-- Ya recibidos: NIT 900.914.555-3, Calle 24 # 3-99 Of. 1506 (Santa Marta), cel. y WhatsApp +57 324 569 2973
-- Correos (general, talento humano, compras), horario de atención, redes sociales
-- Cifras reales: años de experiencia, proyectos ejecutados, m² construidos
-- Logo oficial en SVG (hoy hay uno provisional tipográfico en `Logo.jsx`)
+- Ya recibidos: NIT, dirección, cel. y WhatsApp, horario y atención en oficina
+- Correo de la empresa (usa Gmail u Outlook, pero no lo escribió). Mientras esté vacío, el sitio
+  no muestra correo y el formulario, las hojas de vida y los proveedores se envían por WhatsApp
+- Redes sociales (las dejó en blanco: no se muestran). No tiene perfil de Google Maps
+- Cifras reales: años de experiencia, proyectos ejecutados, m² construidos. Sin datos, la franja
+  de cifras del inicio no se muestra
 
 **Nosotros** (`src/data/nosotros.js`)
-- Reseña de la empresa, misión, visión y valores definitivos
-- Hitos de la historia (año de fundación y principales logros)
-- Texto de compromiso con la calidad, la seguridad y el ambiente
+- Año de fundación e hitos de la historia. Sin datos, la sección "Nuestra historia" no se muestra
+- Valores y compromiso: no marcó ninguna opción, siguen los textos de ejemplo
 
 **Servicios** (`src/data/servicios.js`)
-- Validar la descripción y el alcance de cada una de las 8 líneas de negocio
+- Confirmó las afirmaciones del sitio (equipo propio, clientes públicos y privados, proyectos aeroportuarios)
 
 **Proyectos** (`src/data/proyectos.js`)
-- Portafolio real: nombre, cliente o entidad, ubicación, año, área, estado, alcance
-- 3 a 6 fotografías por proyecto (horizontales, mínimo 1600 px de ancho)
+- Fotos reales recibidas. Faltan año, área y nombre del cliente de cada proyecto (y si se puede publicar)
 
 **Calidad y seguridad**
 - No tiene certificaciones ISO (confirmado). El sitio no menciona certificaciones, sistemas

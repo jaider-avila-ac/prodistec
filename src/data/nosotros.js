@@ -1,13 +1,13 @@
 import { EMPRESA } from './empresa'
 import { ShieldCheck, Award, Handshake, Leaf, Users, Scale } from 'lucide-react'
 
-// Redacción de EJEMPLO — el cliente debe validar o reemplazar misión, visión,
-// valores, historia y compromiso.
+// Misión y visión: textos del cliente (cuestionario recibido). Valores y compromiso
+// siguen siendo la redacción de ejemplo, el cliente no pidió cambiarlos.
 export const MISION =
-  'Ejecutar proyectos de obra civil, infraestructura y arquitectura con calidad, seguridad y cumplimiento, aportando soluciones técnicas que generen valor para nuestros clientes, nuestros colaboradores y las comunidades donde trabajamos.'
+  'Somos una empresa constructora dedicada al desarrollo de proyectos de obra civil, en los ámbitos público y privado. La misión de PRODISTEC S.A.S. es satisfacer las necesidades de sus clientes antes, durante y después de finalizado el proyecto, dando cumplimiento a los estándares de calidad, costos y plazos fijados, respetando la legislación laboral, técnica, medioambiental y social.'
 
 export const VISION =
-  'Para 2030 ser reconocidos como una empresa de ingeniería y construcción de referencia en la región, por la calidad de nuestras obras, el cumplimiento de nuestros compromisos y nuestra participación en proyectos de infraestructura de alto impacto.'
+  'Posicionarnos como la mejor empresa en el sector de la construcción en el ámbito nacional, a través del desarrollo de los proyectos en tiempos óptimos, la mejora continua de nuestros procesos, la gestión del capital humano y el respeto a las normas para la conservación del medio ambiente, para así brindar siempre servicios de calidad a nuestros clientes.'
 
 export const VALORES = [
   { titulo: 'Integridad', icon: Scale, texto: 'Actuamos con transparencia y ética en cada contrato y en cada relación.' },
@@ -18,12 +18,9 @@ export const VALORES = [
   { titulo: 'Trabajo en equipo', icon: Users, texto: 'Sumamos el talento de profesionales, técnicos y aliados.' },
 ]
 
-export const HISTORIA = [
-  { anio: '2015', titulo: 'Fundación', texto: `Nace ${EMPRESA.nombre} como empresa de obra civil y arquitectura.` },
-  { anio: '2018', titulo: 'Primeros contratos públicos', texto: 'Ejecutamos nuestras primeras obras para entidades públicas.' },
-  { anio: '2021', titulo: 'Infraestructura aeroportuaria', texto: 'Participamos en nuestro primer proyecto de modernización aeroportuaria.' },
-  { anio: '2024', titulo: 'Crecimiento regional', texto: 'Ampliamos nuestra presencia en proyectos de la región Caribe.' },
-]
+// Hitos de la empresa ({ anio, titulo, texto }). El cliente aún no los entrega;
+// con la lista vacía la sección "Nuestra historia" no se muestra.
+export const HISTORIA = []
 
 export const COMPROMISO =
   `En ${EMPRESA.nombre} nos comprometemos a satisfacer los requisitos de nuestros clientes, prevenir lesiones y enfermedades laborales, proteger el medio ambiente y cumplir la legislación aplicable, mediante la mejora continua de nuestros procesos.`

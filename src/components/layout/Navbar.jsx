@@ -35,7 +35,7 @@ export default function Navbar() {
           <span>{EMPRESA.lema} · NIT {EMPRESA.nit}</span>
           <div className="flex items-center gap-6">
             <a href={EMPRESA.telefonoHref} className="flex items-center gap-2 hover:text-accent"><Phone size={13} /> {EMPRESA.telefono}</a>
-            <a href={`mailto:${EMPRESA.email}`} className="flex items-center gap-2 hover:text-accent"><Mail size={13} /> {EMPRESA.email}</a>
+            {EMPRESA.email && <a href={`mailto:${EMPRESA.email}`} className="flex items-center gap-2 hover:text-accent"><Mail size={13} /> {EMPRESA.email}</a>}
           </div>
         </div>
       </div>
@@ -94,7 +94,7 @@ export default function Navbar() {
             ))}
             <div className="mt-8 space-y-3 text-sm text-gray-300">
               <a href={EMPRESA.telefonoHref} className="flex items-center gap-3"><Phone size={16} className="text-accent" /> {EMPRESA.telefono}</a>
-              <a href={`mailto:${EMPRESA.email}`} className="flex items-center gap-3"><Mail size={16} className="text-accent" /> {EMPRESA.email}</a>
+              {EMPRESA.email && <a href={`mailto:${EMPRESA.email}`} className="flex items-center gap-3"><Mail size={16} className="text-accent" /> {EMPRESA.email}</a>}
             </div>
           </nav>
         </div>

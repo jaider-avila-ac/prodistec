@@ -1,11 +1,10 @@
 import { MessageCircle } from 'lucide-react'
-import { EMPRESA } from '../../data/empresa'
+import { enlaceWhatsApp } from '../../data/empresa'
 
 export default function WhatsAppButton() {
-  const texto = encodeURIComponent('Hola, quisiera información sobre sus servicios.')
   return (
     <a
-      href={`https://wa.me/${EMPRESA.whatsapp}?text=${texto}`}
+      href={enlaceWhatsApp('Hola, quisiera información sobre sus servicios.')}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Escribir por WhatsApp"

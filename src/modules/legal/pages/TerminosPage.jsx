@@ -10,7 +10,8 @@ export default function TerminosPage() {
       <h2>1. Identificación</h2>
       <p>
         El presente sitio web es administrado por {EMPRESA.nombre}, identificada con NIT {EMPRESA.nit}, con domicilio en{' '}
-        {EMPRESA.direccion}, {EMPRESA.ciudad}, correo electrónico {EMPRESA.email} (en adelante, "la Empresa").
+        {EMPRESA.direccion}, {EMPRESA.ciudad}, {EMPRESA.email ? `correo electrónico ${EMPRESA.email}` : `teléfono y WhatsApp ${EMPRESA.telefono}`}{' '}
+        (en adelante, "la Empresa").
       </p>
 
       <h2>2. Objeto</h2>
@@ -46,28 +47,35 @@ export default function TerminosPage() {
         condiciones de cada proyecto se definen en la propuesta y el contrato correspondientes.
       </p>
 
-      <h2>7. Enlaces a terceros</h2>
+      <h2>7. Cotizaciones</h2>
+      <p>
+        Las cotizaciones que se soliciten a través del sitio son gratuitas y no generan ningún compromiso para el usuario.
+        Cada cotización tiene una validez de {EMPRESA.legal.validezCotizacion} contados desde su emisión.
+      </p>
+
+      <h2>8. Enlaces a terceros</h2>
       <p>
         El sitio puede contener enlaces a sitios de terceros (por ejemplo, redes sociales o mapas). La Empresa no es responsable
         por su contenido ni por sus políticas de privacidad.
       </p>
 
-      <h2>8. Responsabilidad</h2>
+      <h2>9. Responsabilidad</h2>
       <p>
         La Empresa procura que el sitio esté disponible y actualizado, pero no garantiza la ausencia de interrupciones o errores,
         ni responde por daños derivados del uso de la información publicada.
       </p>
 
-      <h2>9. Datos personales</h2>
+      <h2>10. Datos personales</h2>
       <p>
         Los datos que el usuario suministre se tratarán conforme a la{' '}
         <Link to="/legal/politica-de-privacidad" className="underline">política de tratamiento de datos personales</Link>.
       </p>
 
-      <h2>10. Modificaciones y ley aplicable</h2>
+      <h2>11. Modificaciones y ley aplicable</h2>
       <p>
         La Empresa puede modificar estos términos en cualquier momento; la versión vigente será la publicada en el sitio. Estos
-        términos se rigen por las leyes de la República de Colombia.
+        términos se rigen por las leyes de la República de Colombia, y las diferencias o reclamos relacionados con el sitio se
+        resolverán en la ciudad de {EMPRESA.legal.ciudadReclamos}.
       </p>
     </LegalLayout>
   )

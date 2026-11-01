@@ -63,12 +63,8 @@ export default function CalidadPage() {
             <SectionHeading eyebrow="En cada obra" title="Nuestro compromiso" />
             <blockquote className="mt-8 border-l-4 border-accent pl-6 text-xl leading-relaxed text-gray-700">{COMPROMISO}</blockquote>
           </Reveal>
-          <Reveal delay={120} className="relative">
+          <Reveal delay={120}>
             <img src={IMAGENES.calidad.politica} alt="" className="w-full aspect-[4/3] object-cover" />
-            <div className="absolute -bottom-6 -left-6 bg-accent p-6 max-w-[220px]">
-              <div className="font-display text-5xl font-bold leading-none">0</div>
-              <p className="mt-1 text-sm font-semibold">Meta de accidentes graves en obra</p>
-            </div>
           </Reveal>
         </div>
       </section>

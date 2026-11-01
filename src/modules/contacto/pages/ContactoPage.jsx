@@ -1,17 +1,17 @@
 import { Phone, Mail, MapPin, Clock, MessageCircle } from 'lucide-react'
 import { usePageMeta } from '../../../utils/seo'
-import { EMPRESA } from '../../../data/empresa'
+import { EMPRESA, enlaceWhatsApp } from '../../../data/empresa'
 import { IMAGENES } from '../../../data/imagenes'
 import PageHero from '../../../components/ui/PageHero'
 import ContactoForm from '../components/ContactoForm'
 
 const CANALES = [
   { icon: Phone, titulo: 'Teléfono', valor: EMPRESA.telefono, href: EMPRESA.telefonoHref },
-  { icon: MessageCircle, titulo: 'WhatsApp', valor: 'Escríbanos', href: `https://wa.me/${EMPRESA.whatsapp}` },
+  { icon: MessageCircle, titulo: 'WhatsApp', valor: 'Escríbanos', href: enlaceWhatsApp() },
   { icon: Mail, titulo: 'Correo', valor: EMPRESA.email, href: `mailto:${EMPRESA.email}` },
-  { icon: MapPin, titulo: 'Oficina', valor: `${EMPRESA.direccion}, ${EMPRESA.ciudad}` },
+  { icon: MapPin, titulo: `Oficina · ${EMPRESA.atencionOficina}`, valor: `${EMPRESA.direccion}, ${EMPRESA.ciudad}` },
   { icon: Clock, titulo: 'Horario', valor: EMPRESA.horario },
-]
+].filter((c) => c.valor) // un canal sin dato (p. ej. sin correo) no se muestra
 
 export default function ContactoPage() {
   usePageMeta('Contacto', 'Contáctenos para cotizar su proyecto de obra civil, edificación o infraestructura.')
@@ -42,7 +42,7 @@ export default function ContactoPage() {
                       <span className="w-12 h-12 bg-accent text-ink flex items-center justify-center shrink-0"><c.icon size={20} /></span>
                       <span>
                         <span className="block text-xs uppercase tracking-widest text-gray-400">{c.titulo}</span>
-                        <span className="block mt-1 font-semibold break-all">{c.valor}</span>
+                        <span className="block mt-1 font-semibold break-words">{c.valor}</span>
                       </span>
                     </>
                   )

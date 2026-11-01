@@ -19,7 +19,7 @@ function datosEstructurados(e) {
     description: e.descripcion,
     taxID: e.nit,
     telephone: e.telefono,
-    email: e.correos.general,
+    ...(e.correos.general && { email: e.correos.general }),
     address: {
       '@type': 'PostalAddress',
       streetAddress: e.direccion,

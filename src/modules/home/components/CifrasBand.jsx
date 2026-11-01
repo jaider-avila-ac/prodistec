@@ -22,6 +22,7 @@ function Contador({ valor, activo }) {
 
 export default function CifrasBand() {
   const [ref, visible] = useInViewOnce({ threshold: 0.4 })
+  if (!CIFRAS.length) return null
   return (
     <section id="cifras" ref={ref} className="bg-ink text-white border-t border-white/10">
       <div className="container-site grid grid-cols-2 lg:grid-cols-4">
