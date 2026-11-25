@@ -12,7 +12,9 @@ export const SITIO = datos.sitioWeb.replace(/\/$/, '')
 export const ID_EMPRESA = `${SITIO}/#empresa`
 
 const IMAGEN_REDES = '/og-prodistec.jpg' // 1200 x 630
-const TITULO_INICIO = `${EMPRESA.nombreCorto} | Constructora en Santa Marta, obra civil y arquitectura`
+// Nombre de la empresa en el título de las pestañas y de Google
+const MARCA = `${EMPRESA.nombreCorto} SAS`
+const TITULO_INICIO = `${MARCA} | Constructora en Santa Marta, obra civil y arquitectura`
 
 // Los rastreadores de WhatsApp/Facebook no siempre leen WebP: cada .webp tiene su .jpg al lado.
 const aJpg = (ruta) => ruta.replace(/\.webp$/i, '.jpg')
@@ -41,7 +43,7 @@ function migasLd(migas, url) {
 export function construirMeta({ titulo, descripcion, imagen, migas, jsonLd = [], noindex = false }, ruta) {
   const url = urlDe(ruta)
   return {
-    titulo: titulo ? `${titulo} | ${EMPRESA.nombreCorto}` : TITULO_INICIO,
+    titulo: titulo ? `${titulo} | ${MARCA}` : TITULO_INICIO,
     descripcion: descripcion || EMPRESA.descripcion,
     url,
     imagen: absoluta(aJpg(imagen || IMAGEN_REDES)),
