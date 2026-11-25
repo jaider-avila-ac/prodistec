@@ -1,0 +1,13 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Un solo dominio: www.prodistec.com -> prodistec.com
+  RewriteCond %{HTTP_HOST} ^www\.prodistec\.com$ [NC]
+  RewriteRule ^(.*)$ https://prodistec.com/$1 [R=301,L]
+
+  # Rutas de React: cualquier URL que no sea un archivo real carga index.html
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^ index.html [L]
+</IfModule>
