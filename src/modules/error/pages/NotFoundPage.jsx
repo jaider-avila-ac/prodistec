@@ -4,7 +4,7 @@ import { usePageMeta } from '../../../utils/seo'
 import { IMAGENES } from '../../../data/imagenes'
 
 export default function NotFoundPage() {
-  usePageMeta('Página no encontrada')
+  usePageMeta({ titulo: 'Página no encontrada', noindex: true })
   return (
     <section className="relative min-h-[80vh] flex items-center bg-ink text-white overflow-hidden">
       <img src={IMAGENES.error404.fondo} alt="" className="absolute inset-0 w-full h-full object-cover opacity-20" />

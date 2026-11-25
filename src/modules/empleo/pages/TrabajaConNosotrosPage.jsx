@@ -17,7 +17,11 @@ const PROVEEDORES = canal(EMPRESA.emailProveedores, 'Quiero inscribirme como pro
 const enlaceExterno = (c) => (c.externo ? { target: '_blank', rel: 'noopener noreferrer' } : {})
 
 export default function TrabajaConNosotrosPage() {
-  usePageMeta('Trabaje con nosotros', `Envíe su hoja de vida o inscríbase como proveedor de ${EMPRESA.nombre}`)
+  usePageMeta({
+    titulo: 'Trabaje con nosotros',
+    descripcion: `Envíe su hoja de vida o inscríbase como proveedor o contratista de ${EMPRESA.nombre}, empresa de construcción en Santa Marta.`,
+    migas: [{ label: 'Trabaje con nosotros' }],
+  })
   return (
     <>
       <PageHero

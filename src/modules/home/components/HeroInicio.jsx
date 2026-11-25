@@ -39,10 +39,11 @@ export default function HeroInicio() {
         >
           <img
             src={img}
-            alt={i === 0 ? `Obra en construcción de ${EMPRESA.nombreCorto}` : ''}
+            alt={i === 0 ? 'Terminal del Aeropuerto Contador en construcción, Pitalito, Huila' : ''}
             className="w-full h-full object-cover hero-drift"
             style={{ animationDelay: `${-i * 5}s` }}
             loading={i === 0 ? 'eager' : 'lazy'}
+            fetchpriority={i === 0 ? 'high' : undefined}
           />
         </div>
       ))}
@@ -78,8 +79,8 @@ export default function HeroInicio() {
         </h1>
         <div className="mt-10 flex flex-col lg:flex-row lg:items-end gap-8 lg:justify-between">
           <p className="max-w-xl text-lg text-gray-300 leading-relaxed">
-            Edificaciones, obras urbanas, viales, institucionales y aeroportuarias ejecutadas con
-            ingeniería, seguridad y cumplimiento.
+            Empresa constructora en {EMPRESA.ciudadCorta}. Edificaciones, obras urbanas, viales,
+            institucionales y aeroportuarias ejecutadas con ingeniería, seguridad y cumplimiento.
           </p>
           <div className="flex flex-wrap gap-3">
             <Link to="/proyectos" className="btn-accent">Ver proyectos <ArrowRight size={16} /></Link>

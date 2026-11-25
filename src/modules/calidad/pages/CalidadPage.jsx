@@ -30,7 +30,12 @@ const PILARES = [
 ]
 
 export default function CalidadPage() {
-  usePageMeta('Calidad y seguridad', `Compromiso con la calidad, la seguridad y salud en el trabajo y el cuidado ambiental en las obras de ${EMPRESA.nombre}`)
+  usePageMeta({
+    titulo: 'Calidad, seguridad y salud en el trabajo y ambiente',
+    descripcion: 'Control de calidad, seguridad y salud en el trabajo y gestión ambiental en nuestras obras: supervisión técnica, prevención de riesgos y manejo de residuos.',
+    imagen: IMAGENES.calidad.politica,
+    migas: [{ label: 'Calidad y seguridad' }],
+  })
   return (
     <>
       <PageHero
@@ -64,7 +69,7 @@ export default function CalidadPage() {
             <blockquote className="mt-8 border-l-4 border-accent pl-6 text-xl leading-relaxed text-gray-700">{COMPROMISO}</blockquote>
           </Reveal>
           <Reveal delay={120}>
-            <img src={IMAGENES.calidad.politica} alt="" className="w-full aspect-[4/3] object-cover" />
+            <img src={IMAGENES.calidad.politica} alt="Personal con elementos de protección y maquinaria de pavimentación frente al terminal aeroportuario en construcción" loading="lazy" className="w-full aspect-[4/3] object-cover" />
           </Reveal>
         </div>
       </section>

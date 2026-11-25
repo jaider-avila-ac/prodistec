@@ -1,3 +1,17 @@
+# Cada página viene prerenderizada como archivo .html (scripts/prerender.mjs):
+#   /                        -> index.html
+#   /servicios               -> servicios.html
+#   /servicios/construccion  -> servicios/construccion.html
+# Una dirección que no existe recibe 404.html con estado 404 real (no un 200 con la
+# página de inicio), para que Google no la indexe.
+
+ErrorDocument 404 /404.html
+
+# /servicios es a la vez un archivo (servicios.html) y una carpeta (servicios/): sin esto
+# Apache redirigiría a /servicios/ por ser carpeta.
+DirectorySlash Off
+Options -Indexes
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
@@ -6,8 +20,33 @@
   RewriteCond %{HTTP_HOST} ^www\.prodistec\.com$ [NC]
   RewriteRule ^(.*)$ https://prodistec.com/$1 [R=301,L]
 
-  # Rutas de React: cualquier URL que no sea un archivo real carga index.html
+  # Sin barra final: /servicios/ -> /servicios (una sola URL por página)
   RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule ^ index.html [L]
+  RewriteRule ^(.+)/$ /$1 [R=301,L]
+
+  # Sin .html visible: /servicios.html -> /servicios
+  RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[\s?] [NC]
+  RewriteCond %1 !^404$
+  RewriteRule ^ /%1 [R=301,L]
+
+  # /servicios -> servicios.html
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.+)$ $1.html [L]
+</IfModule>
+
+# Caché: los archivos de /assets llevan un hash en el nombre (cambian en cada versión),
+# así que se guardan un año. Las fotos un mes. El HTML siempre se revisa.
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType text/javascript "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 month"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/svg+xml "access plus 1 month"
+</IfModule>
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json image/svg+xml text/xml application/xml
 </IfModule>

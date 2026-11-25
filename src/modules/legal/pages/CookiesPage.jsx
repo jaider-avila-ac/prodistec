@@ -1,8 +1,9 @@
 import { usePageMeta } from '../../../utils/seo'
+import { EMPRESA } from '../../../data/empresa'
 import LegalLayout from '../components/LegalLayout'
 
 export default function CookiesPage() {
-  usePageMeta('Política de cookies')
+  usePageMeta({ titulo: 'Política de cookies', descripcion: `Qué cookies usa el sitio web de ${EMPRESA.nombre} y cómo desactivarlas.`, migas: [{ label: 'Legal' }, { label: 'Política de cookies' }] })
   return (
     <LegalLayout title="Política de cookies">
       <h2>1. Qué son las cookies</h2>

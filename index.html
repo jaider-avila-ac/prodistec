@@ -1,24 +1,43 @@
 <!doctype html>
-<html lang="es">
+<html lang="es-CO">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/isotipoproditec.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Los marcadores %EMPRESA_*% se llenan al compilar con src/data/empresa.json -->
+    <link rel="icon" type="image/svg+xml" href="/isotipoproditec.svg" />
+    <meta name="theme-color" content="#0E1116" />
+    <!-- Lo que va entre seo:inicio y seo:fin lo reemplaza scripts/prerender.mjs con el meta
+         propio de cada página (título, descripción, canonical, imagen para redes...).
+         Los marcadores %EMPRESA_*% se llenan al compilar con src/data/empresa.json. -->
+    <!--seo:inicio-->
     <title>%EMPRESA_NOMBRE% | %EMPRESA_LEMA%</title>
     <meta name="description" content="%EMPRESA_DESCRIPCION%" />
-    <meta name="theme-color" content="#0E1116" />
+    <!--seo:fin-->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="%EMPRESA_NOMBRE_CORTO%" />
-    <meta property="og:title" content="%EMPRESA_NOMBRE% | %EMPRESA_LEMA%" />
-    <meta property="og:description" content="%EMPRESA_DESCRIPCION%" />
     <meta property="og:locale" content="es_CO" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script>
+      // Respaldo para navegadores que no muestran WebP (Safari de macOS 10.15 o anterior): si
+      // una imagen .webp falla, se cambia una sola vez por su copia .jpg (misma ruta, junto a
+      // cada .webp en public/). Va aquí y no en el JS de React porque las imágenes ya vienen en
+      // el HTML prerenderizado y pueden fallar antes de que cargue la aplicación. Se escucha en
+      // fase de captura porque el evento "error" de una imagen no burbujea.
+      document.addEventListener('error', function (e) {
+        var img = e.target
+        if (!img || img.tagName !== 'IMG' || img.getAttribute('data-respaldo-webp')) return
+        var src = img.getAttribute('src') || ''
+        if (!/\.webp(\?|#|$)/i.test(src)) return
+        img.setAttribute('data-respaldo-webp', '1')
+        img.src = src.replace(/\.webp(?=\?|#|$)/i, '.jpg')
+      }, true)
+    </script>
+    <!-- Sin JavaScript, el contenido con animación de entrada se muestra igual -->
+    <noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root"><!--app--></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

@@ -11,7 +11,12 @@ import CtaBanner from '../../../components/ui/CtaBanner'
 const ALTOS = ['h-96', 'h-72', 'h-80', 'h-72', 'h-96', 'h-80']
 
 export default function ProyectosPage() {
-  usePageMeta('Proyectos', `Portafolio de proyectos de obra civil, edificaciones e infraestructura ejecutados por ${EMPRESA.nombre}`)
+  usePageMeta({
+    titulo: 'Proyectos de construcción y obra civil',
+    descripcion: `Obras de ${EMPRESA.nombreCorto}: terminal del Aeropuerto Contador en Pitalito, colegios en Aracataca, Pivijay y Nueva Venecia y pavimentación de vías en Santa Marta.`,
+    imagen: IMAGENES.proyectos.cabecera,
+    migas: [{ label: 'Proyectos' }],
+  })
   const [categoria, setCategoria] = useState('Todos')
 
   const lista = useMemo(
@@ -51,7 +56,7 @@ export default function ProyectosPage() {
           <div key={categoria} className="mt-10 columns-1 sm:columns-2 lg:columns-3 gap-4 fade-in">
             {lista.map((p, i) => (
               <div key={p.slug} className="mb-4 break-inside-avoid">
-                <ProyectoCard proyecto={p} alto={ALTOS[i % ALTOS.length]} />
+                <ProyectoCard proyecto={p} alto={ALTOS[i % ALTOS.length]} nivel="h2" />
               </div>
             ))}
           </div>

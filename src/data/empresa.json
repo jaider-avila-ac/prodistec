@@ -2,12 +2,17 @@
   "nombre": "PRODISTEC S.A.S.",
   "nombreCorto": "PRODISTEC",
   "lema": "Obra civil y arquitectura",
-  "descripcion": "Empresa de obra civil y arquitectura en Santa Marta. Construcción, edificaciones, infraestructura urbana, vial, institucional y aeroportuaria.",
+  "descripcion": "Empresa constructora en Santa Marta: obra civil, edificaciones, vías, infraestructura institucional y aeroportuaria, arquitectura e ingeniería civil.",
   "nit": "900.914.555-3",
   "direccion": "Calle 24 # 3-99, Oficina 1506",
   "ciudad": "Santa Marta",
   "departamento": "Magdalena",
   "pais": "Colombia",
+  "zonaAtendida": [
+    "Santa Marta",
+    "Magdalena",
+    "Colombia"
+  ],
   "telefono": "+57 324 569 2973",
   "whatsapp": "+57 324 569 2973",
   "correos": {
@@ -18,13 +23,44 @@
   },
   "correoFormulario": "prodistecsas01@gmail.com",
   "horario": "Lunes a viernes, 8:00 a. m. a 1:00 p. m. y 2:00 p. m. a 5:00 p. m. Sábados, 8:00 a. m. a 12:00 m.",
+  "horarioEstructurado": [
+    {
+      "dias": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "abre": "08:00",
+      "cierra": "13:00"
+    },
+    {
+      "dias": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "abre": "14:00",
+      "cierra": "17:00"
+    },
+    {
+      "dias": [
+        "Saturday"
+      ],
+      "abre": "08:00",
+      "cierra": "12:00"
+    }
+  ],
   "atencionOficina": "Solo con cita previa",
   "redes": {
     "facebook": "",
     "instagram": "",
     "linkedin": ""
   },
-  "sitioWeb": "",
+  "sitioWeb": "https://prodistec.com",
   "legal": {
     "areaDatosPersonales": "Recursos Humanos",
     "conservacionHojasDeVida": "6 meses",

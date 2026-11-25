@@ -1,0 +1,37 @@
+import { Routes, Route } from 'react-router-dom'
+import Layout from './components/layout/Layout'
+import { HomePage } from './modules/home'
+import { NosotrosPage } from './modules/nosotros'
+import { ServiciosPage, ServicioDetallePage } from './modules/servicios'
+import { ProyectosPage, ProyectoDetallePage } from './modules/proyectos'
+import { CalidadPage } from './modules/calidad'
+import { ContactoPage } from './modules/contacto'
+import { TerminosPage, PrivacidadPage, CookiesPage } from './modules/legal'
+import { NotFoundPage } from './modules/error'
+
+/** Rutas del sitio: las usa el navegador (App.jsx) y el prerender (entry-server.jsx).
+ *  Al agregar una ruta, agregarla también a RUTAS_ESTATICAS en entry-server.jsx. */
+export default function AppRoutes() {
+  return (
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<HomePage />} />
+        <Route path="nosotros" element={<NosotrosPage />} />
+        <Route path="servicios" element={<ServiciosPage />} />
+        <Route path="servicios/:slug" element={<ServicioDetallePage />} />
+        <Route path="proyectos" element={<ProyectosPage />} />
+        <Route path="proyectos/:slug" element={<ProyectoDetallePage />} />
+        <Route path="calidad-y-seguridad" element={<CalidadPage />} />
+        {/* "Trabaje con nosotros" (src/modules/empleo) está desactivada a pedido del cliente.
+            Para volver a publicarla: importar TrabajaConNosotrosPage, agregar aquí la ruta
+            "trabaja-con-nosotros", en RUTAS_ESTATICAS (entry-server.jsx) y los enlaces en NAV
+            (data/empresa.js) y en el Footer. */}
+        <Route path="contacto" element={<ContactoPage />} />
+        <Route path="legal/terminos-y-condiciones" element={<TerminosPage />} />
+        <Route path="legal/politica-de-privacidad" element={<PrivacidadPage />} />
+        <Route path="legal/politica-de-cookies" element={<CookiesPage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Route>
+    </Routes>
+  )
+}

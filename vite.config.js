@@ -7,35 +7,8 @@ const RUTA_EMPRESA = new URL('./src/data/empresa.json', import.meta.url)
 
 const escaparHtml = (s) => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
 
-/** Datos estructurados schema.org de la empresa (lo que Google lee para mostrar
- *  teléfono, dirección y redes). Se omiten los campos que estén vacíos. */
-function datosEstructurados(e) {
-  const redes = Object.values(e.redes).filter(Boolean)
-  const json = {
-    '@context': 'https://schema.org',
-    '@type': 'GeneralContractor',
-    name: e.nombreCorto,
-    legalName: e.nombre,
-    description: e.descripcion,
-    taxID: e.nit,
-    telephone: e.telefono,
-    ...(e.correos.general && { email: e.correos.general }),
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: e.direccion,
-      addressLocality: e.ciudad,
-      addressRegion: e.departamento,
-      addressCountry: 'CO',
-    },
-    ...(e.sitioWeb && { url: e.sitioWeb }),
-    ...(redes.length && { sameAs: redes }),
-  }
-  // "<" escapado para que ningún texto pueda cerrar la etiqueta <script>
-  return JSON.stringify(json, null, 2).replace(/</g, '\\u003c')
-}
-
-/** Reemplaza los marcadores %EMPRESA_*% de index.html e inserta los datos
- *  estructurados, para que queden en el HTML estático y no dependan de JavaScript. */
+/** Reemplaza los marcadores %EMPRESA_*% de index.html con los datos de empresa.json.
+ *  El meta de cada página y los datos estructurados los escribe scripts/prerender.mjs. */
 function empresaEnHtml() {
   return {
     name: 'empresa-en-html',
@@ -55,10 +28,7 @@ function empresaEnHtml() {
       for (const [marca, valor] of Object.entries(marcadores)) {
         salida = salida.replaceAll(marca, escaparHtml(valor))
       }
-      return salida.replace(
-        '</head>',
-        `  <script type="application/ld+json">\n${datosEstructurados(e)}\n    </script>\n  </head>`,
-      )
+      return salida
     },
   }
 }

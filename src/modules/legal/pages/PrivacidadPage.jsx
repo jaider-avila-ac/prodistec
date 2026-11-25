@@ -9,7 +9,7 @@ const CANAL_DATOS = EMPRESA.emailDatos
   : `WhatsApp o llamada al ${EMPRESA.telefono}`
 
 export default function PrivacidadPage() {
-  usePageMeta('Política de tratamiento de datos personales')
+  usePageMeta({ titulo: 'Política de tratamiento de datos personales', descripcion: `Cómo ${EMPRESA.nombre} recolecta, usa y protege los datos personales, y cómo ejercer sus derechos de consulta y reclamo.`, migas: [{ label: 'Legal' }, { label: 'Tratamiento de datos personales' }] })
   const { legal } = EMPRESA
   return (
     <LegalLayout title="Tratamiento de datos personales">

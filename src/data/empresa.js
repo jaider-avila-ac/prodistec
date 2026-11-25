@@ -16,6 +16,7 @@ export const EMPRESA = {
   nit: datos.nit,
   direccion: datos.direccion,
   ciudad: `${datos.ciudad}, ${datos.departamento}`,
+  ciudadCorta: datos.ciudad,
   telefono: datos.telefono,
   telefonoHref: `tel:+${soloDigitos(datos.telefono)}`,
   whatsapp: soloDigitos(datos.whatsapp),

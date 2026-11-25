@@ -14,7 +14,12 @@ const CANALES = [
 ].filter((c) => c.valor) // un canal sin dato (p. ej. sin correo) no se muestra
 
 export default function ContactoPage() {
-  usePageMeta('Contacto', 'Contáctenos para cotizar su proyecto de obra civil, edificación o infraestructura.')
+  usePageMeta({
+    titulo: 'Contacto y cotizaciones',
+    descripcion: `Cotice su proyecto de construcción, obra civil o remodelación en Santa Marta. Teléfono y WhatsApp ${EMPRESA.telefono}. Oficina: ${EMPRESA.direccion}.`,
+    imagen: IMAGENES.contacto.cabecera,
+    migas: [{ label: 'Contacto' }],
+  })
   return (
     <>
       <PageHero

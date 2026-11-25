@@ -4,7 +4,7 @@ import { EMPRESA } from '../../../data/empresa'
 import LegalLayout from '../components/LegalLayout'
 
 export default function TerminosPage() {
-  usePageMeta('Términos y condiciones')
+  usePageMeta({ titulo: 'Términos y condiciones', descripcion: `Términos y condiciones de uso del sitio web de ${EMPRESA.nombreCorto}, empresa de obra civil y arquitectura.`, migas: [{ label: 'Legal' }, { label: 'Términos y condiciones' }] })
   return (
     <LegalLayout title="Términos y condiciones">
       <h2>1. Identificación</h2>

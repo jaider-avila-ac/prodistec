@@ -27,7 +27,7 @@ const REDES = [
 function Columna({ titulo, children }) {
   return (
     <div>
-      <h3 className="text-sm font-sans font-bold tracking-[0.2em] text-white mb-5">{titulo}</h3>
+      <p className="text-sm font-sans font-bold tracking-[0.2em] text-white mb-5">{titulo}</p>
       {children}
     </div>
   )

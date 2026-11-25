@@ -1,6 +1,7 @@
 import { Link, NavLink, useParams } from 'react-router-dom'
 import { Check, ArrowRight, Phone } from 'lucide-react'
 import { usePageMeta } from '../../../utils/seo'
+import { SITIO, ID_EMPRESA } from '../../../seo/meta'
 import { EMPRESA } from '../../../data/empresa'
 import { IMAGENES } from '../../../data/imagenes'
 import { SERVICIOS, getServicio } from '../../../data/servicios'
@@ -11,7 +12,22 @@ import NotFoundPage from '../../error/pages/NotFoundPage'
 export default function ServicioDetallePage() {
   const { slug } = useParams()
   const servicio = getServicio(slug)
-  usePageMeta(servicio?.titulo, servicio?.resumen)
+  usePageMeta(servicio && {
+    titulo: servicio.seo.titulo,
+    descripcion: servicio.seo.descripcion,
+    imagen: IMAGENES.servicios.cabecera,
+    migas: [{ label: 'Servicios', to: '/servicios' }, { label: servicio.titulo }],
+    jsonLd: [{
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: servicio.titulo,
+      serviceType: servicio.titulo,
+      description: servicio.descripcion,
+      url: `${SITIO}/servicios/${servicio.slug}`,
+      provider: { '@id': ID_EMPRESA },
+      areaServed: { '@type': 'City', name: 'Santa Marta' },
+    }],
+  })
   if (!servicio) return <NotFoundPage />
 
   return (
@@ -55,7 +71,7 @@ export default function ServicioDetallePage() {
           {/* Lateral */}
           <aside className="lg:col-span-4 space-y-6 lg:sticky lg:top-28 self-start">
             <div className="bg-gray-100">
-              <h3 className="bg-ink text-white px-6 py-4 text-xl font-bold">Otros servicios</h3>
+              <h2 className="bg-ink text-white px-6 py-4 text-xl font-bold">Otros servicios</h2>
               <ul>
                 {SERVICIOS.map((s) => (
                   <li key={s.slug}>
@@ -70,7 +86,7 @@ export default function ServicioDetallePage() {
               </ul>
             </div>
             <div className="bg-ink text-white p-8">
-              <h3 className="text-3xl font-bold leading-none">Solicite una cotización</h3>
+              <h2 className="text-3xl font-bold leading-none">Solicite una cotización</h2>
               <p className="mt-3 text-sm text-gray-400">Cuéntenos sobre su proyecto y le contactamos.</p>
               <Link to="/contacto" className="btn-accent w-full mt-6">Contactar <ArrowRight size={16} /></Link>
               <a href={EMPRESA.telefonoHref} className="mt-4 flex items-center justify-center gap-2 text-sm text-gray-300 hover:text-accent"><Phone size={14} /> {EMPRESA.telefono}</a>

@@ -8,7 +8,12 @@ import CtaBanner from '../../../components/ui/CtaBanner'
 import Reveal from '../../../components/ui/Reveal'
 
 export default function ServiciosPage() {
-  usePageMeta('Servicios', 'Construcción, edificaciones, infraestructura, infraestructura aeroportuaria, arquitectura, ingeniería civil, gestión de proyectos y remodelaciones.')
+  usePageMeta({
+    titulo: 'Servicios de construcción, obra civil y arquitectura',
+    descripcion: 'Construcción de obras civiles, edificaciones, vías y aeropuertos, diseño arquitectónico, ingeniería civil, gerencia de obra y remodelaciones en Santa Marta.',
+    imagen: IMAGENES.servicios.cabecera,
+    migas: [{ label: 'Servicios' }],
+  })
   return (
     <>
       <PageHero

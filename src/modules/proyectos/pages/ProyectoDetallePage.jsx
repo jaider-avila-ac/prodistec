@@ -2,16 +2,29 @@ import { useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { ArrowLeft, ArrowRight, Check, X } from 'lucide-react'
 import { usePageMeta } from '../../../utils/seo'
+import { EMPRESA } from '../../../data/empresa'
 import { PROYECTOS, getProyecto } from '../../../data/proyectos'
 import PageHero from '../../../components/ui/PageHero'
 import ProyectoCard from '../../../components/ui/ProyectoCard'
 import NotFoundPage from '../../error/pages/NotFoundPage'
 
+/** "Aeropuerto Contador, Pitalito, Huila"; sin repetir el municipio cuando ya está en el nombre
+ *  ("Institución educativa en Aracataca, Magdalena"). */
+function tituloSeo(p) {
+  const [municipio, ...resto] = p.ubicacion.split(', ')
+  return p.titulo.includes(municipio) ? [p.titulo, ...resto].join(', ') : `${p.titulo}, ${p.ubicacion}`
+}
+
 export default function ProyectoDetallePage() {
   const { slug } = useParams()
   const proyecto = getProyecto(slug)
   const [visor, setVisor] = useState(null)
-  usePageMeta(proyecto?.titulo, proyecto?.resumen)
+  usePageMeta(proyecto && {
+    titulo: tituloSeo(proyecto),
+    descripcion: `${proyecto.resumen} Proyecto de ${EMPRESA.nombre}.`,
+    imagen: proyecto.imagen,
+    migas: [{ label: 'Proyectos', to: '/proyectos' }, { label: proyecto.titulo }],
+  })
   if (!proyecto) return <NotFoundPage />
 
   const idx = PROYECTOS.indexOf(proyecto)
@@ -38,11 +51,11 @@ export default function ProyectoDetallePage() {
       <section className="py-20 sm:py-24">
         <div className="container-site grid lg:grid-cols-12 gap-12">
           <div className="lg:col-span-8">
-            <img src={proyecto.imagen} alt={proyecto.titulo} className="w-full aspect-video object-cover" />
+            <img src={proyecto.imagen} alt={`${proyecto.titulo}, ${proyecto.ubicacion}: vista general de la obra`} className="w-full aspect-video object-cover" />
             <div className="mt-4 grid grid-cols-3 gap-4">
               {proyecto.galeria.map((img, i) => (
                 <button key={i} type="button" onClick={() => setVisor(img)} className="group relative overflow-hidden" aria-label={`Ampliar imagen ${i + 1}`}>
-                  <img src={img} alt="" loading="lazy" className="w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-110" />
+                  <img src={img} alt={`${proyecto.titulo}, ${proyecto.ubicacion}: foto ${i + 1} de la obra`} loading="lazy" className="w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-110" />
                 </button>
               ))}
             </div>
@@ -57,7 +70,7 @@ export default function ProyectoDetallePage() {
 
           <aside className="lg:col-span-4 lg:sticky lg:top-28 self-start">
             <div className="bg-ink text-white">
-              <h3 className="px-8 pt-8 text-3xl font-bold">Ficha técnica</h3>
+              <h2 className="px-8 pt-8 text-3xl font-bold">Ficha técnica</h2>
               <dl className="p-8 pt-4">
                 {ficha.map(([k, v]) => (
                   <div key={k} className="py-4 border-b border-white/10 flex justify-between gap-4">
@@ -85,7 +98,7 @@ export default function ProyectoDetallePage() {
             <Link to="/proyectos" className="flex items-center gap-2 text-sm font-bold uppercase tracking-wider"><ArrowLeft size={16} /> Portafolio</Link>
           </div>
           <div className="mt-10 grid md:grid-cols-3 gap-4">
-            {relacionados.map((p) => <ProyectoCard key={p.slug} proyecto={p} alto="h-72" />)}
+            {relacionados.map((p) => <ProyectoCard key={p.slug} proyecto={p} alto="h-72" nivel="h3" />)}
           </div>
         </div>
       </section>
@@ -95,7 +108,7 @@ export default function ProyectoDetallePage() {
           <button type="button" className="absolute top-4 right-4 w-12 h-12 bg-white text-ink flex items-center justify-center" aria-label="Cerrar">
             <X size={22} />
           </button>
-          <img src={visor} alt="" className="max-h-full max-w-full object-contain" />
+          <img src={visor} alt={`${proyecto.titulo}: foto ampliada`} className="max-h-full max-w-full object-contain" />
         </div>
       )}
     </>

@@ -2,9 +2,11 @@ import { HardHat, Building2, Route, PlaneTakeoff, DraftingCompass, Cog, Clipboar
 
 // Líneas de negocio suministradas por el cliente. "resumen" es el texto original;
 // "descripcion" y "alcances" son redacción de ejemplo para que el cliente la ajuste.
+// "seo" es el título y la descripción que muestra Google (máx. ~60 y ~160 caracteres).
 export const SERVICIOS = [
   {
     slug: 'construccion',
+    seo: { titulo: 'Construcción de obras civiles en Santa Marta', descripcion: 'Empresa constructora en Santa Marta: obras civiles de principio a fin, movimientos de tierra, cimentaciones, estructuras en concreto y acero, redes y acabados.' },
     titulo: 'Construcción',
     icon: HardHat,
     resumen: 'Ejecución de obras civiles y proyectos de infraestructura.',
@@ -13,6 +15,7 @@ export const SERVICIOS = [
   },
   {
     slug: 'edificaciones',
+    seo: { titulo: 'Construcción de edificaciones en Santa Marta', descripcion: 'Construcción, adecuación y mejoramiento de edificaciones institucionales, educativas, comerciales e industriales en Santa Marta y el Magdalena.' },
     titulo: 'Edificaciones',
     icon: Building2,
     resumen: 'Construcción, adecuación y mejoramiento de edificaciones.',
@@ -21,6 +24,7 @@ export const SERVICIOS = [
   },
   {
     slug: 'infraestructura',
+    seo: { titulo: 'Obras de infraestructura urbana y vial', descripcion: 'Pavimentación de vías urbanas, andenes y espacio público, redes de acueducto, alcantarillado y drenaje, y obras de contención en Santa Marta y el Magdalena.' },
     titulo: 'Infraestructura',
     icon: Route,
     resumen: 'Obras de infraestructura urbana, vial e institucional.',
@@ -29,6 +33,7 @@ export const SERVICIOS = [
   },
   {
     slug: 'infraestructura-aeroportuaria',
+    seo: { titulo: 'Construcción de infraestructura aeroportuaria', descripcion: 'Construcción y modernización de terminales aeroportuarios, plataformas y zonas de operación. Ejecutamos el nuevo terminal del Aeropuerto Contador de Pitalito.' },
     titulo: 'Infraestructura aeroportuaria',
     icon: PlaneTakeoff,
     resumen: 'Participación en proyectos de construcción y modernización aeroportuaria.',
@@ -37,6 +42,7 @@ export const SERVICIOS = [
   },
   {
     slug: 'arquitectura-y-diseno',
+    seo: { titulo: 'Arquitectura y diseño arquitectónico en Santa Marta', descripcion: 'Diseño arquitectónico, planos de construcción y detalles, coordinación de diseños técnicos y apoyo en trámites de licencias de construcción en Santa Marta.' },
     titulo: 'Arquitectura y diseño',
     icon: DraftingCompass,
     resumen: 'Diseño y desarrollo arquitectónico como servicio complementario.',
@@ -45,6 +51,7 @@ export const SERVICIOS = [
   },
   {
     slug: 'ingenieria-civil',
+    seo: { titulo: 'Ingeniería civil en Santa Marta', descripcion: 'Planeación y programación de obra, presupuestos, análisis de precios unitarios, estudios y control técnico de proyectos de ingeniería civil en Santa Marta.' },
     titulo: 'Ingeniería civil',
     icon: Cog,
     resumen: 'Planeación, coordinación y ejecución de proyectos de ingeniería.',
@@ -53,6 +60,7 @@ export const SERVICIOS = [
   },
   {
     slug: 'gestion-de-proyectos',
+    seo: { titulo: 'Gerencia y gestión de proyectos de construcción', descripcion: 'Gerencia y administración de obra, ejecución de contratos públicos y privados, control de costos y cronogramas, informes de avance y cierre contractual.' },
     titulo: 'Gestión de proyectos',
     icon: ClipboardList,
     resumen: 'Administración, coordinación y ejecución contractual de proyectos.',
@@ -61,6 +69,7 @@ export const SERVICIOS = [
   },
   {
     slug: 'adecuaciones-y-remodelaciones',
+    seo: { titulo: 'Adecuaciones y remodelaciones en Santa Marta', descripcion: 'Remodelación de oficinas, locales y sedes, actualización de redes y acabados, adecuaciones de accesibilidad y mantenimiento de infraestructura en Santa Marta.' },
     titulo: 'Adecuaciones y remodelaciones',
     icon: Hammer,
     resumen: 'Intervención, mejoramiento y actualización de infraestructura existente.',

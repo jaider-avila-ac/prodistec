@@ -9,7 +9,7 @@ import ProyectosDestacados from '../components/ProyectosDestacados'
 import ProcesoTrabajo from '../components/ProcesoTrabajo'
 
 export default function HomePage() {
-  usePageMeta()
+  usePageMeta({})
   return (
     <>
       <HeroInicio />

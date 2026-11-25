@@ -11,7 +11,12 @@ import ValoresGrid from '../components/ValoresGrid'
 import LineaTiempo from '../components/LineaTiempo'
 
 export default function NosotrosPage() {
-  usePageMeta('Nosotros', `Conozca ${EMPRESA.nombre}: misión, visión, valores e historia de nuestra empresa de obra civil y arquitectura.`)
+  usePageMeta({
+    titulo: 'Nosotros: empresa constructora en Santa Marta',
+    descripcion: `${EMPRESA.nombre} es una empresa colombiana de obra civil y arquitectura con sede en Santa Marta. Conozca su misión, visión, valores y equipo.`,
+    imagen: IMAGENES.nosotros.presentacionGrande,
+    migas: [{ label: 'Nosotros' }],
+  })
   return (
     <>
       <PageHero
@@ -42,7 +47,7 @@ export default function NosotrosPage() {
           </Reveal>
         </div>
         <div className="container-site mt-16">
-          <img src={IMAGENES.nosotros.presentacionGrande} alt="" className="h-64 sm:h-96 w-full object-cover" />
+          <img src={IMAGENES.nosotros.presentacionGrande} alt="Equipo de trabajo y visitantes en la obra aeroportuaria, junto a un vehículo de bomberos de la Aeronáutica Civil" loading="lazy" className="h-64 sm:h-96 w-full object-cover" />
         </div>
       </section>
 
